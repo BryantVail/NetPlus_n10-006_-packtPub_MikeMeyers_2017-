@@ -1,0 +1,57 @@
+
+
+Modern Ethernet Switches and Duplex:
+    100BaseT
+    100BaseTX (the same as above)
+        100 mbps
+        1024 nodes per hub
+        100 meters between hun & client
+        cat5e or better 
+    100BaseFX (F)
+        1024 nodes/hub
+        multi-Mode
+        2 Kilometers
+    
+    Duplex Switching: 
+        switch:
+            monitors each port & knows which mac belongs to each port. 
+            only sends to which part the frame is assigned to
+            broadcast(to each port):
+                sends out to all other ports 
+            Dramatically improves performance on a network
+            point to point 
+    Half Duplex:
+        Crossover cable between 2 PCs may require 'half-duplex'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

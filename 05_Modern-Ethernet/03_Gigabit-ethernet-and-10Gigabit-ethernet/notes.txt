@@ -1,0 +1,61 @@
+
+
+Gigabit Ethernet
+    1000base
+    ethernet Standards
+        1000baseCX
+            
+            cabletype:{
+                name: "twinax",
+                core: copper, 
+            }
+            25 meters
+        1000BaseSX
+            multi
+            500 meters
+        1000BaseLX
+            Single
+            5 Kilometers
+        1000BaseT
+            Cat6 UTP
+            100 meters
+        
+        10GbE (10 Gigabit):
+            SoNet
+            10_G_Base_T
+                Cat6
+                    55 meters 
+                CAT6a 
+                    100 meters 
+            10GBase SR /SW (SoNet)
+                multi-mode 
+                    26m - 400m
+            10GBase LR / LW (SoNet)
+                Single Mode:
+                    1310nm (nano-meter)
+                    10 Kilometers
+            10GBase ER / EW (SoNet)
+                Single Mode: 
+                    1550 nm (nano-meter)
+                    40 Kilometers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

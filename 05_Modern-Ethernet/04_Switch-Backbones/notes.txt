@@ -1,0 +1,47 @@
+
+
+Switch Backbones: 
+    Free us from daisy chain
+        -also free from entire network problems due to one cable going bad.
+    many different speeds within the same network. 
+    High Speed switch in the middle
+        feeding multiple outlying switches feeding the outer lower speed networks from there
+
+    "GBIC (Gigabit Interface Converter)"
+        -designed to move in/out of switches, so that the network can talk to just about anyone. 
+        "Bridge Loop (BLoop)":
+            Problems: 
+                whole network goes down
+                Spanning Tree Protocol:
+                    -prevents BLoop 
+                    -will turn off one of thier ports 
+
+            image: "../Bridge-Loop_BLoop.png"
+        -image: "../Gigabit-Interface-Converter.png",
+
+        
+    Image: 
+        file:  "../switch-backbone-illustration-w-blocks.png"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

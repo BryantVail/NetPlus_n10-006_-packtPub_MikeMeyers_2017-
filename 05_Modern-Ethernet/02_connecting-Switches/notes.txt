@@ -1,0 +1,41 @@
+
+
+
+Connecting Switches: 
+    Making One Big Switch out of Two
+    Patch Cables: 
+        Either 568A or 568B on both ends
+        Crossover:
+            568A with 568B
+            Sends go to receive, receive goes to send. 
+            use:
+                simple:
+                    plug into any port on both switches 
+                complicated:
+                    uplink (pre-crossover): use a straight through cable (not crossover) & the "uplink" port does it for us. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
