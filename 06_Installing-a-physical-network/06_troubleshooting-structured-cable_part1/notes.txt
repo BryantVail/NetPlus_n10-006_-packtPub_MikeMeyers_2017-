@@ -1,0 +1,27 @@
+
+
+Troubleshooting Structured Cabling part1:
+    -Rare but does happen
+    Work Area Problems:
+        -patch cable
+        -wall outlets
+        -Loopback:
+            rj45
+                -pin placement:
+                    1-3
+                    2-6
+            Truth: 
+                NICs will not use the physical connection always**
+            Loopback IP: 
+                IPv4:   127.0.0.1
+
+
+
+
+
+
+
+
+
+
+

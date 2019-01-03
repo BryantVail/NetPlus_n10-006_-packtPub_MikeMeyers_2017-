@@ -1,0 +1,35 @@
+
+
+Troubleshooting Structured Cabling part2
+    "MDF (Main Distribution Frame)":
+        -all vs individual
+    "Electricity":
+        -Voltage meter
+            ex: when all elevators turn on & the system goes down 
+    "Environmental/Temperature Monitor":
+    "Horizontal Run":
+        -leave it alone
+        -TDR: should be able to verify with length
+        -interference: 
+            a) cable is often installed before all renovations are done
+            b) new A/C system 
+            c) certain times of day 
+    "Modal Distortion":
+        -Light travels in different modes
+        -how the light bounces
+        -ONLY Multi-Mode 
+    
+    ***Always look at the work area first!***
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+
+
+Toner and Probe
+    "Utility":
+        -used to check which port on the switch goes to which outlet/workstation. 
+        -using the probe to put inside the outlet & listen for the tone that is being generated at the termination end. 
+            -when the switch/patch panel was not labeled. 
+    
+    "Tone Generator":
+        creates a tone 
+    "Tone Probe" 
+        listens for tone 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

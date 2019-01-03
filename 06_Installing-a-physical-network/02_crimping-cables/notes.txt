@@ -1,0 +1,63 @@
+
+
+Crimping Cables:
+    8 wires on the cable 
+    TIA Standards:
+            **568A**                                **568B**
+        8)  Brown               Same                Brown 
+        7)  Brown/White         Same                Brown/White 
+        6)  Orange                                  Green 
+        5)  Blue/White          Same                Blue/White 
+        4)  Blue                Same                Blue 
+        3)  Orange/White                            Green/White
+        2)  Green                                   Orange 
+        1)  Green/White                             Orange/White
+
+            note: green & orange are the ONLY wires that change. ***
+        
+        More Popular: TIA_568B
+        "568A":
+            -tip: alphabetical
+                a) Green & Orange are the only colors that move
+                    i)  Green/White is first
+                    ii) Green is second ('G' comes before 'O' for orange)
+                    iii)Orange/White is 3rd, then Orange is 6th after the static position of the two Blue wires
+                b) Brown takes positions:   7, & 8
+                c) Blue takes positions:    4, & 5
+        "568B": 
+            -alphabetical descending
+            a)  Orange/White, 
+                Orange, 
+                Green/White, 
+                4 & 5 for Blues, 
+                6 for Green 
+
+        
+        image: "..\TIA_568B-568A_Standards.png"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

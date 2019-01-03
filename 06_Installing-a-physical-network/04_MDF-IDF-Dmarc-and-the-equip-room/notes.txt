@@ -1,0 +1,38 @@
+
+
+Equipment Room:
+    19 inches is standard for equip racks
+    "MDF (Main Distribution Frame)":
+    "IDF (Intermediate Distribution Frame)":
+    "U":
+        -standardized height for 19" equip rack sections
+
+    "Demarc Extension":
+        -Extending the Dmarc over to (the cable modem) where the customer's network begins
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

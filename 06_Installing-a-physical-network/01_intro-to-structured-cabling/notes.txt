@@ -1,0 +1,30 @@
+
+Intro to structured Cabling:
+    "Components":
+        Equipment Room
+            a) equipment room 
+            b) patch panel
+                i) all solid core Runs terminate here
+                ii)patch cable with Strand Copper used between the Switch & panel 
+        Horizontal Run 
+            a) solid core cabling, 
+                i) don't move it from the run 
+            
+        Work Area
+            Work Stations & Jacks 
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

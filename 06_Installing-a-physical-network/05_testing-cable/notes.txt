@@ -1,0 +1,30 @@
+
+
+Testing Cable:
+    "Wiremap":
+        -testing whether all of wires are in the correct place
+        -
+    "Continuity":
+        -Connection from one end of the individual wire to the other
+    "Distance":
+        "TDR (Time Domain Reflectometer)":
+            -Determine whether the length of the run is within standard
+            -no more than 90m, patch cable of <= 10m            
+        "OTDR (Optical Time Domain Reflectometer)":    
+            -Fiber
+    "Cross Talk":
+        -certify runs to be able to run up to standard (CAT6a 10gbps)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
