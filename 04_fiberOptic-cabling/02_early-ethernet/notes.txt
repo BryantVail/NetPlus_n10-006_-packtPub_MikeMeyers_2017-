@@ -1,0 +1,47 @@
+
+
+Early Ethernet: 
+    10Base5
+        Transeiver 
+        Vampire Screws into the cable 
+        "Segmented Ethernet": 
+            ethernet in the ceiling
+                run PCs off the cable 
+                talk at the same time: 
+                    CSMA/CD:
+                        Carrier Sense Multiple Access/ Collision Detection
+                    Terminating Resistors on the end of the cable
+    "10Base2":
+        200 meter segments (185 meters)
+        BNC connector 
+        T Connector into the NIC with either another cable or a "Terminating Resistor". 
+        30 device ability to support 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

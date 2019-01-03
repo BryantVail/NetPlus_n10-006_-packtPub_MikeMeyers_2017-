@@ -1,0 +1,43 @@
+
+
+10BaseT
+    Grandaddy of the Internet
+    Token Ring
+        Problems: 
+            IBM (Proprietary)
+            $$$ per foot 
+    10BaseT:
+        Hubs, or a "Bus in a Box"
+        10mbps
+        100 meters between 
+        1024 nodes per hub/switch and node 
+        cat3 cable or Better (UTP)
+    MSAU (Multi-Station Access Unit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

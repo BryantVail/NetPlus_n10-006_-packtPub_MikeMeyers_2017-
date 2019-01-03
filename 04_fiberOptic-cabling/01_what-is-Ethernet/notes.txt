@@ -1,0 +1,44 @@
+
+
+what is Ethernet
+    definition: 
+        February 1980:
+            IEEE 802.3/ Ethernet 
+                cables
+                speed
+                type of frame
+                sense & comm
+    Frame: 
+        stayed the same virtually
+        Lives on MAC
+        FCS (Frame Check Sequence)
+        frame <= ~1500 bytes
+        backward compatible bc the frame never changes
+    Ethernet is the frame
+    Nomenclature: 
+        example: 10Base5
+            "10" :          speed in MBPS
+            "Base/Broad":   
+                broad:      channels
+                Base:       1 channel 
+            "5":            500 meters
+                -will usually show "T" instead of a number 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
