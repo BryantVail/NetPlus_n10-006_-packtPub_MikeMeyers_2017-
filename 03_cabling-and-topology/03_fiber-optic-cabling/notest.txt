@@ -1,0 +1,61 @@
+
+
+fiber   
+    Network equipment has to be specific to the type of fiber 
+    2 connectors always
+    "Multimode":
+        -LED signals
+        -Orange: almost always
+    "Single Mode":
+        -LAZER
+        -thinner piece of fiber 
+        -long distance
+        -Yellow: almost always
+    "Duplex Cables":
+        2 cables in 1 connected strand of shrink rubber
+    "Connectors":
+        ST Connector:
+            -early connector 
+            -round
+            -twist & lock 
+        SC Connector: 
+            -square
+            -straight in
+        FC Connector: 
+            -Screw on with multiple threads
+        LC Connector: 
+            -fiber together in 1 connector
+            -square 
+        MT-RJ Connector: 
+            -square 
+            -high density 
+    "Polishing":
+        PC (classic 'Polished Connector'): 
+            -square w/rounded corners 
+            -cheapest
+        UPC :
+            -UPC (ultra)
+            -better than PC 
+            -rounded 
+        APC (angled): 
+            -angle 
+            -best connection 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
