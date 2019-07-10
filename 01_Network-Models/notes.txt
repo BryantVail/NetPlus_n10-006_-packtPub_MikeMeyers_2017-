@@ -1,0 +1,31 @@
+01_Network-Models
+___________________________________________________
+video1: meet the frame
+    max-frame = 1500 bytes;
+    Network Interface Card; NIC
+    packetized Data
+
+
+
+___________________________________________________
+video2: the mac address
+    when traffic reaches hub(repeater) creates copies to send out. 
+        as many conns that there are 
+    Frames: 
+        MacAddresses: 
+            Destination
+            Source
+    MacAddress: 
+        unique 48-bit identifier for a nic
+    NICs 
+        use mac addresses to determine whether or not to process a frame 
+
+
+___________________________________________________
+video3: Broadcast vs Unicast
+    
+
+
+
+
+
