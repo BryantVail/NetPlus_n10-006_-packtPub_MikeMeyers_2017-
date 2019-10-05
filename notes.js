@@ -579,6 +579,11 @@
                 {
                     name: "UTP and STP Cabling",
                     desc: "twisted pair",
+                    reviewTips: [
+                        "UTP Normally consists of 4 Pairs",
+                        "Make sure to know the 'Cat' levels",
+                        "STP is used in 'high interference' environments"
+                    ],
                     notes: "",
                     aspects: [
                         {
@@ -592,24 +597,23 @@
                         {
                             name: "Shielded Twisted Pair",
                             abbreviation: "",
-                            desc: "",
+                            desc: "aluminum shielding",
                             notes: [
                                 ""
                             ]
                         },
                         {
                             name: "categories of Twisted Pair",
+                            distance: "100m",
                             categories: [
                                 {
                                     name: "CAT3",
                                     speed: "10mbps",
-                                    distance: ""
                                 },
                                 
                                 {
                                     name: "CAT5e",
                                     speed: "100mbps",
-                                    distance: "",
                                     notes: [
                                         "successor to CAT5, as the improved version"
                                     ]
@@ -617,19 +621,15 @@
                                 {
                                     name: "CAT6",
                                     speed: "1000mbps",
-                                    distance: ""
+                                    notes: [
+                                        "10gbps at 55meters"
+                                    ]
                                 },
                                 {
                                     name: "CAT6a",
                                     speed: "10gbps",
-                                    distance: ""
                                 },
-                                {
-                                    name: "",
-                                    speed: "",
-                                    distance: ""
-                                },
-
+                                
                             ]
                         }
                     ]
