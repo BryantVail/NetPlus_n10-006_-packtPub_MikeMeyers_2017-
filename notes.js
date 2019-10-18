@@ -633,19 +633,262 @@
                             ]
                         }
                     ]
-                },
+                },//end Twisted Pair Section
                 {
                     name: "Fiber Optic Cabling",
                     desc: "",
-                    notes: "",
+                    sectionTips: [
+                        "multi-mode cables use LED signals",
+                        "single-mode uses 'laser' signals",
+                        "regognize the connector types for fiber"
+                    ],
+                    notes: [
+                        "fiber optic is duplex generally",
+                    ],
                     aspects: [
                         {
-                            name: "",
+                            name: "connectors",
                             desc: "",
+                            types: [
+                                {
+                                    name: "ST",
+                                    desc: "push in & twist to lock on",
+                                    notes: [
+                                        "earliest type of connector for fiber"
+                                    ]
+                                },
+                                {
+                                    name: "SC",
+                                    desc: "Squre, clip in, and pull out",
+                                },
+                                {
+                                    name: "FC",
+                                    desc: "Screws in like the 'f' type connector of 'Coax'",
+                                },
+                                {
+                                    name: "LC",
+                                    desc: "",
+                                    notes: [
+                                        "One of the first to put both optic fiber in one connector"
+                                    ]
+                                },
+                                {
+                                    name: "MT-RJ",
+                                    desc: "very small single connector for duplex fiber",
+                                    notes: [
+                                        "found in 'high density' connections"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "Modes of the light/optic signal",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            modes: [
+                                {
+                                    name: "Single-mode",
+                                    desc: "designed for 'lasers'",
+                                    notes: [
+                                        "Yellow; almost always the same color"
+                                    ]
+                                },
+                                {
+                                    name: "Multi-Mode",
+                                    desc: "designed to propogate light; an LED that generates the light",
+                                    notes: [
+                                        "Orange; almost always the same color"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "Polish types on Fiber-Optic",
+                            desc: "",
+                            types: [
+                                {
+                                    name: "PC; Polished Connector",
+                                    desc: "square-rounded"
+                                },
+                                {
+                                    name: "UPC; Ultra Polished Connector",
+                                    desc: "rounded"
+                                },
+                                {
+                                    name: "APC; Angle Polished Connector",
+                                    desc: "loses very little light at the contact point"
+                                }
+                            ]
+                        }
+                    ]
+                },//end 'fiber'
+                
+            ]
+        },//end Cabling and Topology
+        {
+            number: 3,
+            desc: "",
+            sections: [
+                {
+                    name: "what is ethernet",
+                    desc: "A standard- 'IEEE 802.3'- that defines every part of a network",
+                    sectionReview: [
+                        "Ethernet is defined by the IEEE 802.3 standard",
+                        "There are many versions of Ethernet",
+                        "Recognize Ethernet Naming syntax"
+                    ],
+                    notes: [
+                        "layman 'ethernet'; its a standard",
+                        "frame construction, voltage, connections, etc",
+                        "frame check sequence",
+                        "package/payload",
+                        ""
+                    ],
+                    aspects: [
+                        {
+                            name: "Ethernet Frame",
+                            desc: "the frame has been the same essentially from the beginning",
+                            notes: [
+                                "1500 byte practical limit",
+                                "backward compatibility",
+                                "modularity; medium to medium- there's no real challenge to connect networks"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Cyclical Redundancy Check",
+                                    desc: "Frame check sequence",
+                                },
+                                {
+                                    name: "MAC addresses",
+                                    desc: "'to' and 'from' MACs"
+                                },
+                                {
+                                    name: "payload",
+                                    desc: "body of the message"
+                                }
+                            ]
+                        },//end 'Ethernet Frame
+                        {
+                            name: "Ethernet Nomenclature",
+                            desc: "",
+                            example: "100Base5",
+                            aspects: [
+                                {
+                                    name: "center",
+                                    desc: "",
+                                    illustration: "10{Base}5",
+                                    examples: [
+                                        {
+                                            name: 'broad',
+                                            desc: 'broadband; with channels'
+                                        },
+                                        {
+                                            name: "base",
+                                            desc: "bandwidth is on a single channel",
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "End",
+                                    desc: "length of the cable on the last run",
+                                    illustration: "10Base{5}",
+                                    examples: [
+                                        {
+                                            name: "number",
+                                            desc: "the length of the cable- used back when workstations had to hook into the ethernet cable"
+                                        },
+                                        {
+                                            name: "T",
+                                            desc: ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "beginning",
+                                    desc: "",
+                                    example: ""
+                                },
+                            ]
+                        }
+                    ]
+                },//end what is ethernet
+                {
+                    name: "Early Ethernet",
+                    desc: "",
+                    sectionReview: [
+                        "CSMA/CD; Carrier Sense Multiple Access/ Collision Detection",
+                        "10Base5 and 10Base2 require terminating resistors at both end of a segmented cable",
+                        "10Base2 requires a 'T' connector"
+                    ],
+                    notes: [
+                        "box or switch usually goes out to each terminal- not in early ethernet; 10Base5",
+                    ],
+                    aspects: [
+                        {
+                            name: "Segmented Ethernet",
+                            desc: "vampire connector into thick cable",
+                            notes: [
+                                "f connector",
+                                "where the term 'drops' came from",
+                                "10Base5"
+                            ]
+                        },
+                        {
+                            name: "Carrier Sense Multiple Access/ Collision Detection",
+                            abbreviation: "CSMA/CD",
+                            notes: [
+                                "",
+                                ""
+                            ],
+                            aspects: [
+                                {
+                                    name: "carrier sense",
+                                    desc: "check if someone is trying to talk, if not, send.",
+                                    notes: [
+                                        "when the signal hits the end, theres 'reflection'"
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "terminating resistor",
+                                            desc: "'eats' the signal to prevent 'reflection' of the signal back on to the communication medium"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "10Base2",
+                            desc: "10mbps, 'base' band, 200m segments (185m)",
+                            notes: [
+                                "terminators on the end",
+                                "can handle up to 30 devices per segment",
+                                ""
+                            ]
                         }
                     ]
                 },
-                
+                {
+                    name: "The Daddy of Ethernet - 10BaseT",
+                    desc: "",
+                    notes: [
+                        "break of segments at any point of the old 10base2, would shut down the whole network ",
+                    ],
+                    sectionTips: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "token ring",
+                            desc: "IBM defined - circa 1984 - standard for network communication to aleive the industry concern of 'contention-based' access methods.",
+                            notes: [
+                                "proprietary; from IBM",
+                                "fair access for all stations/terminals; eliminates the collisions of 'contention-based' access methods"
+                            ]
+                        }
+                    ]
+                },
             ]
         }
     ]
