@@ -8,7 +8,7 @@
         },
         {
             number: 2, 
-            name: "meet the frame",
+            name: "network models",
             desc: "",
             notes: [
                 "",
@@ -521,7 +521,7 @@
                 },//end OSI and TCP/IP Model
                 
             ]
-        },
+        },//end 'network models'
         {
             number: 3,
             name: "Cabling and Topology",
@@ -575,7 +575,7 @@
                         },
                         
                     ]
-                },
+                },//end 'coaxial cabling'
                 {
                     name: "UTP and STP Cabling",
                     desc: "twisted pair",
@@ -633,7 +633,7 @@
                             ]
                         }
                     ]
-                },
+                },//end 'UTP and STP Cabling'
                 {
                     name: "Fiber Optic Cabling",
                     desc: "",
@@ -647,6 +647,9 @@
                 },
                 
             ]
-        }
+        },//end 'cabling and topology'
+        {
+            number: 4
+        },// end 'fiber optic cabling
     ]
 })();
