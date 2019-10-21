@@ -1,4 +1,4 @@
-({
+const book = {
     media: "video",
     author: "Mike Meyers",
     publicationYear: "2017",
@@ -444,7 +444,7 @@
                     aspects: [
                         {
                             name: "'Physical' and 'Network Interface'",
-                            number: "1",
+                            number: 1,
                             desc: "receive packet, verify its for this computer."
                         },
                         {
@@ -518,10 +518,9 @@
                             ]
                         }
                     ]
-                },//end OSI and TCP/IP Model
-                
+                },//end 'OSI and TCP/IP Model Walkthroughs'
             ]
-        },//end 'network models'
+        },//end 'network models' (2)
         {
             number: 3,
             name: "Cabling and Topology",
@@ -724,11 +723,17 @@
                         }
                     ]
                 },//end 'fiber'
-                
             ]
+<<<<<<< HEAD
         },//end Cabling and Topology
         {
             number: 3,
+=======
+        },//end 'cabling and topology'(3)
+        {
+            number: 4,
+            name: "Fiber Optic Cabling",
+>>>>>>> 98502ae2b66c213029afdbf34650a88fcb8ce312
             desc: "",
             sections: [
                 {
@@ -868,7 +873,7 @@
                             ]
                         }
                     ]
-                },
+                },//end 'Early Ethernet'
                 {
                     name: "The Daddy of Ethernet - 10BaseT",
                     desc: "",
@@ -1004,8 +1009,986 @@
                             ]
                         }
                     ]
-                },
+                },//end 'The Daddy of Ethernet - 10BaseT'
             ]
+<<<<<<< HEAD
         }
     ]
 })();
+=======
+        },
+        {
+            number: 5,
+            name: "Modern Ethernet",
+            sections: [
+                {
+                    name: "Modern Ethernet, Switches, and Duplex",
+                    desc: "",
+                    sectionTips: [
+                        "know the 10BaseTypes: names, distances, node number, etc",
+                        "know your 100BaseTypes: names, distances, node number, etc"
+                    ],
+                    notes: [
+                        "can't look at NICs and know what their standard is",
+                        "full duplex starting with 100BaseT",
+                        "'half' vs 'full' duplex"
+                    ],
+                    aspects: [
+                        {
+                            name: "100Base",
+                            desc: "",
+                            notes: [
+                                "100BaseT & 100BaseTX is the same standard",
+                                "100mbps",
+                                "1024 nodes per hub",
+                                "100m from node to hub",
+                                "CAT5e or better"
+                            ]
+                        },
+                        {
+                            name: "100BaseFX",
+                            desc: "",
+                            notes: [
+                                "1024 nodes per hub",
+                                "multimode",
+                                "2km distance",
+                                "100BaseFX or 100BaseF"
+                            ]
+                        },
+                        {
+                            name: "switch",
+                            desc: "",
+                            notes: [
+                                "keeps track of the computer on each physical 'port'; what a switch does that a hub 'doesn't' do.",
+                                "sends only to the port that matches the destination MAC",
+                                "'point to point' communication can happen with multiple users/PCs at the full bandwidth",
+                            ],
+                            aspects: [
+                                {
+                                    name: "broadcast",
+                                    desc: "",
+                                    notes: [
+                                        "switch can also do a broadcast"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Modern Ethernet, Switches, and Duplex'
+                {
+                    name: "Connecting Switches",
+                    desc: "expand broadcast domain by bringing in another switch",
+                    sectionTips: [
+                        "Straight through cables have identical ends",
+                        "cross-over cables have opposite ends",
+                        "connect switches directly with crossover cables"
+                    ],
+                    notes: [
+                        "connect one end of the crossover cable to one switch & the other end into an empty port on the other",
+                    ],
+                    aspects: [
+                        {
+                            name: "patch cables",
+                            desc: "short cable with a  strand-core meant to be moved with relative long life",
+                            notes: [
+                                "NetPlusTip: any port on one switch and any port on the other to connect switches.",
+                            ],
+                            aspects: [
+                                {
+                                    name: "simple method",
+                                    desc: "with a crossover cable, connect any port on one switch and any port on the other to connect switches",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "alternative method",
+                                    desc: "uplink port is used to crossover with a 'straight through' cable",
+                                    notes: [
+                                        "many switches today are 'auto sensing' removing the need for such intentional monitoring of the crossover cable or port.",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "uplink port",
+                                            desc: "a port with the wires 'pre crossed over'; a crossover port to use straight through cables to crossover",
+                                            notes: [
+                                                "buttons or jumpers are sometimes used to make this transition",
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "straight through cable",
+                                    desc: "same standard on both sides of the Twisted Pair cable; tia568b or tia568a respectively",
+                                },
+                                {
+                                    name: "crossover cable",
+                                    desc: "opposite standard on each end of the cable; tia568a on one end, and tia568b on the other",
+                                    notes: [
+                                        "send goes to receive & vice versa",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Connecting Switches'
+                {
+                    name: "Gigabit Ethernet and 10 Gigabit Ethernet",
+                    desc: "1000Base_; ",
+                    sectionTips: [
+                        "know 1000Base/1gb types: names, distances, node number, etc",
+                        "know 10GBase types: names, distances, node number, etc"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "1000BaseCX",
+                            desc: "",
+                            notes: [
+                                "25m between nodes",
+                                "twinax",
+                                "twisted pair but with a coax like connector",
+                                "rare"
+                            ],
+                            aspects: [
+                                {
+                                    name: "connector",
+                                    connector: "twinax",
+                                    desc: "like a coax connector",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "1000 Base SX",
+                            desc: "",
+                            notes: [
+                                "multimode FiberOptic Cable",
+                                "500meters"
+                            ]
+                        },
+                        {
+                            name: "1000 Base LX",
+                            desc: "",
+                            notes: [
+                                "5 kilometers",
+                                "single mode fiber optic cable"
+                            ]
+                        },
+                        {
+                            name: "1000 Base T",
+                            desc: "Twisted Pair",
+                            notes: [
+                                "CAT 6 UTP",
+                                "100 meters",
+
+                            ]
+                        },
+                        {
+                            name: "10 GBase T",
+                            desc: "twisted pair 10gb networks",
+                            notes: [
+                                "Twisted Pair",
+                            ],
+                            aspects: [
+                                {
+                                    name: "CAT6",
+                                    desc: "55m limitation for 10gb performance",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "CAT 6a",
+                                    desc: "100m limitation for 10gb performance",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "10 GBase SR",
+                            desc: "",
+                            notes: [
+                                "multi-mode cable",
+                                "26m - 400m effective range"
+                            ],
+                            aspects: [
+                                {
+                                    name: "10GBase 'SW'",
+                                    desc: "'SoNet' variant",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "10 GBase LR (Long Range)",
+                            desc: "Long range 10gb network",
+                            notes: [
+                                "single-mode",
+                                "1310nm fiber",
+                                "10 kilometers",
+                            ],
+                            aspects: [
+                                {
+                                    name: "10GBase 'LW'",
+                                    desc: "'SoNet' variant",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "10 GBase ER (extended range?)",
+                            desc: "",
+                            notes: [
+                                "single-mode",
+                                "1550nm fiber",
+                                "40 kilometers"
+
+                            ],
+                            aspects: [
+                                {
+                                    name: "10GBase 'EW'",
+                                    desc: "'SoNet' variant",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "10GbE",
+                            desc: "10 Gigabit Ethernet",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Gigabit Ethernet and 10 Gigabit Ethernet'
+                {
+                    name: "Swtich Backbones",
+                    desc: "",
+                    sectionTips: [
+                        "Bridge Loops from improper cabling",
+                        "STP automatically shuts down bridge loops",
+                        "'Backbones': High-Speed switches connecting secondary switches"
+                    ],
+                    notes: [
+                        "'Backbone' is relating to the connected switches to facilitate resource management",
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "managing interconnected networks",
+                            desc: "",
+                            notes: [
+                                "high speed switch in the middle, then branch out to other networks that can be limited",
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Gigabit Interface Converter",
+                                    abbreviation: "GBIC",
+                                    desc: "designed to move in & out of switches to interconnect different data mediums & cables",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Bridge Loop",
+                                    abbreviation: "B-Loop; BLoop",
+                                    desc: "sending data can get stuck in a loop between the interconnected switches; resources can be taken up by redundant requests, perhaps spamming and bringing down the receiver on the switch.",
+                                    notes: [
+                                        "closed loop of switch to a switch thats already on the backbone",
+                                    ]
+                                },
+                                {
+                                    name: "spanning tree protocol",
+                                    desc: "checks for a loop in the tree",
+                                    abbreviation: "STP",
+                                    notes: [
+                                        "will disable a port connected that would facilitate the Bridge Loop",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Swtich Backbones'
+            ]
+        },//end 'Modern Ethernet' (5)
+        {
+            number: 6,
+            name: "Installing a Physical Network",
+            desc: "",
+            sections: [
+                {
+                    name: "Introduction to Structured Cabling",
+                    desc: "means of connecting machines to a network in a managed way to avoid clutter & promote systematic layout.",
+                    sectionTips: [
+                        "Structured Cabling defines how we install cabling",
+                        "Telecomm closet/Equip Room, Horizontal Runs, Work Area",
+                        "Patch Panels terminate one end of 'horizontal runs'"
+                    ],
+                    notes: [
+                        "switch & PC makes a network, but cabling needs to be managed or organized",
+                    ],
+                    aspects: [
+                        {
+                            name: "Equipment Room/ Telecomm Closet",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "Horizontal Run",
+                            desc: "length of cable from the equipment room to the workstations or computers, otherwise where the machine will hook up to the network",
+                            notes: [
+                                "runs horizontal- often parallel with the cieling",
+                                "uses solid core cable, not to be moved often"
+                            ]
+                        },
+                        {
+                            name: "Patch Panel",
+                            desc: "",
+                            notes: [
+                                "19inches wide commonly",
+                                "where the Horizontal Run terminates on one end",
+                                ""
+                            ]
+                        }
+                    ]
+                },//end section 'Introduction to Structured Cabling'
+                {
+                    name: "Crimping Cables",
+                    desc: "",
+                    sectionTips: [
+                        "recognize T568A & T568B",
+                        "straight through: same standard on each side",
+                        "crossover: different TIA standard on each side"
+                    ],
+                    notes: [
+                        "massage the wires to get them to align next to each other",
+                        "end of sheathing to the end of the bare wire should be ~1/2 inch",
+                        "wire #1 & #2 are 'transmits', and wire #3 & #6 are receiving"
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "TIA Standards",
+                            desc: "standards for wiring Twisted Pair",
+                            notes: [
+                                "Colors that start with 'B' don't move",
+                                "#1 wire: Striped",
+                                "#8 wire: solid",
+                                "blue: 4",
+                                "Blue & white: 5",
+                                "Brown & White: 7",
+                                "Brown: 8"
+                            ],
+                            standards: [
+                                {
+                                    name: "TIA 568 A",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ],
+                                    wireOrder: [
+                                        "Green & white",
+                                        "Green",
+                                        "Orange & White",
+                                        "Blue",
+                                        "Blue & White",
+                                        "Orange",
+                                        "Brown & White",
+                                        "Brown"
+                                    ]
+                                },
+                                {
+                                    name: "TIA 568 B",
+                                    desc: "",
+                                    notes: [
+                                        ""
+                                    ],
+                                    wireOrder: [
+                                        "Orange & White",
+                                        "Orange",
+                                        "Green & White",
+                                        "Blue",
+                                        "Blue & White",
+                                        "Green",
+                                        "Brown & White",
+                                        "Brown"
+                                    ]
+                                },
+                            ]
+                        },//end aspect 'TIA Standards'
+                    ]
+                },//end section 'Crimping Cables'
+                {
+                    name: "Punchdown Blocks",
+                    desc: "",
+                    sectionTips: [
+                        "RJ-45 crimps are used ONLY in Patch Cables",
+                        "horizontal Runs are terminated with 110 punchdowns",
+                        "patch panels and RJ-45 Plugs also have CAT Ratings"
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "110 Punchdown",
+                            desc: "connection made on the back of the patch panel",
+                            notes: [
+                                "CAT Rating is labeled on the patch panel",
+                            ]
+                        },
+                    ]
+                },//end 'Punchdown Blocks'
+                {
+                    name: "MDF, IDF, DMarc, and the Equipment Room",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'MDF, IDF, DMarc, and the Equipment Room'
+                {
+                    name: "Testing Cable",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Testing Cable'
+                {
+                    name: "Troubleshooting Structured Cabling pt. 1",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Troubleshooting Structured Cabling pt. 1'
+                {
+                    name: "Troubleshooting Structured Cabling pt. 2",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Troubleshooting Structured Cabling pt. 2'
+                {
+                    name: "Using a Toner & Probe",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end section 'Using a Toner & Probe'
+            ]
+        },//end 'Installing a Physical Network' (6)
+        {
+            number: 7,
+            name: "TCP/IP Basics",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'TCP/IP Basics' (7)
+        {
+            number: 8,
+            name: "Routing",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Routing' (8)
+        {
+            number: 9,
+            name: "TCP/IP Applications",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'TCP/IP Applications' (9)
+        {
+            number: 10,
+            name: "Network Naming",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Network Naming' (10)
+        {
+            number: 11,
+            name: "Securing TCP/IP",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Securing TCP/IP' (11)
+        {
+            number: 12,
+            name: "Advanced Networking Devices",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Advanced Networking Devices' (12)
+        {
+            number: 13,
+            name: "IPv6",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'IPv6' (13)
+        {
+            number: 14,
+            name: "Remote Connectivity",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Remote Connectivity' (14)
+        {
+            number: 15,
+            name: "Wireless Networking",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Wireless Networking' (15)
+        {
+            number: 16,
+            name: "Virtualization & Cloud Computing",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Virtualization & Cloud Computing' (16)
+        {
+            number: 17,
+            name: "Building a Real-World Network",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Building a Real-World Network' (17)
+        {
+            number: 18,
+            name: "Managing Risk",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Managing Risk' (18)
+        {
+            number: 19,
+            name: "Protecting Your Network",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Protecting Your Network' (19)
+        {
+            number: 20,
+            name: "Network Monitoring",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Network Monitoring' (20)
+        {
+            number: 21,
+            name: "Network Troubleshooting",
+            desc: "",
+            sections: [
+                {
+                    name: "",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: "",
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },//end 'Network Troubleshooting' (21)
+    ]
+};
+
+
+
+
+
+/*
+    //chapter template
+    {
+        number: ,
+        name: "",
+        desc: "",
+        sections: [
+            {
+                name: "",
+                desc: "",
+                sectionTips: [
+                    "",
+                ],
+                notes: "",
+                aspects: [
+                    {
+                        name: "",
+                        desc: "",
+                        notes: [
+                            "",
+                        ]
+                    },
+                ]
+            },
+        ]
+    }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 98502ae2b66c213029afdbf34650a88fcb8ce312
