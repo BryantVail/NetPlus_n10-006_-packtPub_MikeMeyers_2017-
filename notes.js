@@ -633,11 +633,7 @@
                             ]
                         }
                     ]
-<<<<<<< HEAD
                 },//end 'UTP and STP Cabling'
-=======
-                },//end Twisted Pair Section
->>>>>>> 39c26878f3e554f3a3700f7b1445bc4982e99fa1
                 {
                     name: "Fiber Optic Cabling",
                     desc: "",
@@ -730,12 +726,6 @@
                 },//end 'fiber'
                 
             ]
-<<<<<<< HEAD
-        },//end 'cabling and topology'
-        {
-            number: 4
-        },// end 'fiber optic cabling
-=======
         },//end Cabling and Topology
         {
             number: 3,
@@ -884,9 +874,13 @@
                     desc: "",
                     notes: [
                         "break of segments at any point of the old 10base2, would shut down the whole network ",
+                        "multi-station-action Unit"
                     ],
                     sectionTips: [
-                        "",
+                        "10mbps",
+                        "100m between switch & node",
+                        "max 1024 nodes per switch",
+                        "CAT3 or better UTP; designed"
                     ],
                     aspects: [
                         {
@@ -894,13 +888,124 @@
                             desc: "IBM defined - circa 1984 - standard for network communication to aleive the industry concern of 'contention-based' access methods.",
                             notes: [
                                 "proprietary; from IBM",
-                                "fair access for all stations/terminals; eliminates the collisions of 'contention-based' access methods"
+                                "fair access for all stations/terminals; eliminates the collisions of 'contention-based' access methods",
+                                "multi-station-action Unit (MSAU)",
+                                "millions of PCs used to run TokenRing"
+                            ],
+                            problems: [
+                                "proprietary",
+                                "exclusionarily expensive"
+                            ]
+                        },
+                        {
+                            name: "Hub",
+                            desc: "bus in a box",
+                            notes: [
+                                "10BaseT is the first Hub network",
+                                "cornerstone of every future network config"
+                            ],
+                            aspects: [
+                                {
+                                    name: "",
+                                    desc: "",
+                                }
+                            ]
+                        },
+                        {
+                            name: "10BaseT",
+                            desc: "",
+                            notes: [
+                                "10mbps",
+                                "100m between switch & node",
+                                "max 1024 nodes per switch",
+                                "CAT3 or better UTP; designed"
+                            ]
+                        }
+                    ]
+                },//end The Daddy of Ethernet - 10BaseT
+            ]
+        },
+        {
+            number: 5,
+            name: "Modern Ethernet",
+            desc: "",
+            notes: [
+                "",
+                "",
+            ],
+            sections: [
+                {
+                    name: "Modern Ethernet, Switches, and Duplex",
+                    desc: "",
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "ethernet",
+                            desc: "",
+                            notes: [
+                                "10BaseT march toward what we have today",
+                            ]
+                        },
+                        {
+                            name: "100Base",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Connecting Switches",
+                    desc: "",
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Gigabit Ethernet and 10 Gigabit Ethernet",
+                    desc: "",
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Switch Backbones",
+                    desc: "",
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
                             ]
                         }
                     ]
                 },
             ]
         }
->>>>>>> 39c26878f3e554f3a3700f7b1445bc4982e99fa1
     ]
 })();
