@@ -724,16 +724,10 @@ const book = {
                     ]
                 },//end 'fiber'
             ]
-<<<<<<< HEAD
-        },//end Cabling and Topology
-        {
-            number: 3,
-=======
         },//end 'cabling and topology'(3)
         {
             number: 4,
             name: "Fiber Optic Cabling",
->>>>>>> 98502ae2b66c213029afdbf34650a88fcb8ce312
             desc: "",
             sections: [
                 {
@@ -1011,11 +1005,6 @@ const book = {
                     ]
                 },//end 'The Daddy of Ethernet - 10BaseT'
             ]
-<<<<<<< HEAD
-        }
-    ]
-})();
-=======
         },
         {
             number: 5,
@@ -1991,4 +1980,3 @@ const book = {
 
 
 
->>>>>>> 98502ae2b66c213029afdbf34650a88fcb8ce312
