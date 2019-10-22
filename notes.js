@@ -1489,34 +1489,95 @@ const book = {
                     name: "MDF, IDF, DMarc, and the Equipment Room",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "MDF",
+                        "IDF",
+                        "DMarc"
                     ],
                     notes: "",
                     aspects: [
                         {
-                            name: "",
+                            name: "Main Distribution Frame",
                             desc: "",
                             notes: [
                                 "",
                             ]
                         },
+                        {
+                            name: "Intermediate Distribution Frame",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "DMarc",
+                            desc: "separates the service line owned by the provider- from the equipment owned by the tenant",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "dmarc extension",
+                                    desc: "extends the DMarc for the whole building, out to the equipment specific to a tenant."
+                                }
+                            ]
+                        },
+                        {
+                            name: "U",
+                            desc: "1 'Unit' of an equipment rack; 1&3/4\" (1.75\") [1.75inches]"
+                        }
                     ]
                 },//end section 'MDF, IDF, DMarc, and the Equipment Room'
                 {
                     name: "Testing Cable",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "wiremap",
+                        "continuity",
+                        "TDR"
                     ],
-                    notes: "",
+                    notes: [
+                        "other tests"
+                    ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "wiremap",
+                            desc: "matches the wires on each end of the cable to test continuity",
                             notes: [
                                 "",
                             ]
                         },
+                        {
+                            name: "Continuity",
+                            desc: "correct pin matching",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Time Domain Reflectometer",
+                            abbreviation: "TDR",
+                            desc: "Verifies distance between Horizonal Run ends",
+                            notes: [
+                                "90m for Horizontal run, leaves 10m on each end for the 'patch' cable",
+                                "fiber optic as well as Twisted Pair"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Optical TDR",
+                                    abbreviation: "OTDR",
+                                    desc: "TDR for Fiber"
+                                }
+                            ]
+                        },
+                        {
+                            name: "other tests",
+                            tests: [
+                                "near end cross-talk",
+                                "far end cross-talk",
+                                ""
+                            ]
+                        }
                     ]
                 },//end section 'Testing Cable'
                 {
