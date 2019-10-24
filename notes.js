@@ -1584,49 +1584,138 @@ const book = {
                     name: "Troubleshooting Structured Cabling pt. 1",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "loopback plugs to test the NICs ability to send and receive",
+                        "Net+ will give the loopback plug credit for working",
+                        "patch cables and wall outlets are the most common of the Structured cabling failures"
                     ],
-                    notes: "",
+                    notes: [
+                        "check the link light for activity",
+                        "is the Network Card enabled in 'device manager'",
+                        "check for bad device drivers",
+                        "loopback plug",
+                        "check patch cables; vacuum cleaner syndrome",
+                        "replace the wall punchdown"
+                    ],
                     aspects: [
                         {
-                            name: "",
+                            name: "loopback adapter",
                             desc: "",
                             notes: [
-                                "",
+                                "run a ping to the loopback with the adapter",
+                                "ancient history for the most part; NICs typically respond automatically these days",
                             ]
                         },
                     ]
                 },//end section 'Troubleshooting Structured Cabling pt. 1'
                 {
                     name: "Troubleshooting Structured Cabling pt. 2",
-                    desc: "",
+                    desc: "typically impacting more than just one user",
                     sectionTips: [
-                        "",
+                        "Voltage monitors track & record power problems",
+                        "Environmental/Temperature monitors track & record heat & humidity problems",
+                        "TDRs are great tools to check for Horizontal Run problems"
                     ],
-                    notes: "",
+                    notes: [
+                        "Most errors happen at the workstation"
+                    ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "switch",
+                            desc: "if the switch goes down, then everyone goes down",
                             notes: [
                                 "",
                             ]
                         },
+                        {
+                            name: "voltage",
+                            desc: "ensure the cable is carrying the voltage, check on intermittent or slight voltage flux",
+                            notes: [
+                                "UPS (uninteruptable Power Supply)",
+                                "19inch rack mountable UPS's are available"
+                            ]
+                        },
+                        {
+                            name: "Environmental/Temperature Monitors",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Humidity",
+                                    desc: "",
+                                    notes: [
+                                        "computers don't like moisture",
+                                    ]
+                                },
+                                {
+                                    name: "temperature",
+                                    desc: "",
+                                    notes: [
+                                        "computers don't like heat",
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "Horizontal Run",
+                            desc: "",
+                            notes: [
+                                "meant to be left alone",
+                                "use the TDR if a break is suspected, to check the distance to the end of the cable",
+                                "very rare for the Horizontal Line to break"
+                            ]
+                        },
+                        {
+                            name: "interference",
+                            desc: "",
+                            notes: [
+                                "AFTER certification, retro-active changes can impact the interference level of a line.",
+                                "is there a certain time of day",
+                                "'it only happens when its hot'",
+                                "light bulb fixtures"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Modal Distortion",
+                                    desc: "fiber optic (especially multi-mode), can be distorted over the length of travel; multi-mode is not a laser, so the light 'beam' can become less defined over distance in some cases",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        }
                     ]
                 },//end section 'Troubleshooting Structured Cabling pt. 2'
                 {
                     name: "Using a Toner & Probe",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "tone & probes are used to locate cables & connections",
+                        "tone generator: creates the signal",
+                        "tone probe: translates the signal into audible tone",
                     ],
                     notes: "",
                     aspects: [
                         {
-                            name: "",
+                            name: "fox and hound",
                             desc: "",
                             notes: [
-                                "",
+                                "tone generator(creates) & tone probe(listener)",
                             ]
                         },
                     ]
@@ -1644,7 +1733,9 @@ const book = {
                     sectionTips: [
                         "",
                     ],
-                    notes: "",
+                    notes: [
+                        "",
+                    ],
                     aspects: [
                         {
                             name: "",
