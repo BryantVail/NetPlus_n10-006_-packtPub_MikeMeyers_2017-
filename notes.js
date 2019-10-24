@@ -1728,7 +1728,68 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "Intro to IP Addressing and Binary",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "every computer on a Network MUST have a unique IP address on the network",
+                        "32 1's and 0's",
+                        "'dots' in an IP address are just visual aids; 'dots' in an IP address are like the dashes in a phone number",
+                        "128, 64, 32, ,16, 8, 4, 2, 1"
+                    ],
+                    aspects: [
+                        {
+                            name: "Binary",
+                            desc: "",
+                            notes: [
+                                "just 1's and 0's",
+                                "'on' pulse or 'off'",
+                                ""
+                            ]
+                        },
+                        {
+                            name: "IP Address",
+                            desc: "",
+                            notes: [
+                                "32 1's and 0's",
+                                "4 groups of 8 bits",
+                                ""
+                            ],
+                        },
+                        {
+                            name: "Octet",
+                            desc: "binary octet is a value between 0 and 255 (256 values || 2^8th)",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Binary to Numeral",
+                            desc: "from left to right, add the values -respectively- for each value from 2^0 -> 2^8 (1-128)",
+                            notes: [
+                                "128 is the magic number",
+                                "2^8 = 128",
+                                
+                            ],
+                            examples: [
+                                "0 0 0 0 0 0 0 1 = 1",
+                                "0 0 0 0 0 0 1 1 = 3",
+                                "1 0 0 0 0 0 0 0 = 128",
+                            ]
+                        },
+                        {
+                            name: "Numeral to Binary",
+                            desc: "divide the numbers from 2^8 - starting from 128 - into the numeral representation and add a binary value of 1 for each number that can divide into the remainder of the numeral value",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Intro to IP Addressing and Binary
+                {
+                    name: "Introduction to ARP",
                     desc: "",
                     sectionTips: [
                         "",
@@ -1745,7 +1806,140 @@ const book = {
                             ]
                         },
                     ]
-                },
+                },//end 'Introduction to ARP'
+                {
+                    name: "Subnet Masks",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end 'Subnet Masks'
+                {
+                    name: "Classful Addressing",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Classful Addressing
+                {
+                    name: "Subnetting with CIDR",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Subnetting with CIDR
+                {
+                    name: "More CIDR Subnetting Practice",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end 'More CIDR Subnetting Practice'
+                {
+                    name: "Dynamic and Static IP addressing",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Dynamic and Static IP addressing
+                {
+                    name: "Rogue DHCP Servers",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end 'Rogue DHCP Servers'
+                {
+                    name: "Special IP addresses",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },// end 'Special IP addresses'
             ]
         },//end 'TCP/IP Basics' (7)
         {
