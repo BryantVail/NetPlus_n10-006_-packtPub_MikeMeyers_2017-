@@ -1731,7 +1731,9 @@ const book = {
                     name: "Intro to IP Addressing and Binary",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "each computer on a TCP/IP Network must have a unique IP address",
+                        "IP addresses are written as four Octets, such as: 192.168.1.1",
+                        "Each octet represents a binary string. 192, for example = 11000000"
                     ],
                     notes: [
                         "every computer on a Network MUST have a unique IP address on the network",
@@ -1789,20 +1791,24 @@ const book = {
                     ]
                 },//end Intro to IP Addressing and Binary
                 {
-                    name: "Introduction to ARP",
-                    desc: "",
+                    name: "Introduction to Address Resolution Protocol (ARP)",
+                    desc:"a broadcast that sends out to a network saying, 'if you have this IP, please respond with your MAC",
+                    abbreviation: "ARP",
                     sectionTips: [
-                        "",
+                        "ARP resolved IP addresses",
+                        "Type: 'arp -a' to see 'all' of the ARP Cache",
+                        "ARP requests are broadcast over a network"
                     ],
                     notes: [
-                        "",
+                        "necessary between networks- when I have someone's IP, but not their MAC",
+                        "send a packet to another computer that's on my broadcast domain",
                     ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "ARP command",
+                            desc: "check the cache of MACs",
                             notes: [
-                                "",
+                                "refreshes frequently",
                             ]
                         },
                     ]
@@ -1811,17 +1817,44 @@ const book = {
                     name: "Subnet Masks",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Each host needs a subnet",
+                        "SubnetMask of the host is used to know if the destination is on the local network or a remote net",
+                        "'default gateway' must be known by the host so that it can forward traffic to remote networks"
                     ],
                     notes: [
-                        "",
+                        "if the IP address is not in the subnet, then the computer would need to ARP for the 'Default Gateway'",
+                        "IP address is needed",
+                        "Subnet is needed",
+                        "default gateway is needed"
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "default gateway",
+                            desc: "",
+                            notes: [
+                                "default gateway is where packets are sent that have an address OUTSIDE of the subnet",
+                            ]
+                        },
+                        {
+                            name: "network Id",
+                            desc: "the part of the IP address that has to be the same for everyone on the network",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Host Id",
                             desc: "",
                             notes: [
                                 "",
+                            ]
+                        },
+                        {
+                            name: "subnet Mask",
+                            desc: "defines where -in the IP address- the address can deviate from the NetworkId and remain in the network",
+                            notes: [
+                                "common terminology for '/{1's in the subnet}' is 'whack {1's in the subnet}",
+                                "computers use the subnet mask to determine if the IP that is being used to direct the packet is a 'local' or 'long distance' call. "
                             ]
                         },
                     ]
@@ -1836,6 +1869,55 @@ const book = {
                         "",
                     ],
                     aspects: [
+                        {
+                            name: "Internet Assigned Numbers Authority",
+                            abbreviation: "IANA",
+                            desc: "passes out network addresses to the governing authority",
+                            notes: [
+                                "the governing authority is still a high level entity",
+                            ]
+                        },
+                        {
+                            name: "Regional Internet Registry",
+                            desc: "",
+                            notes: [
+                                "there are 5 regions",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Regions",
+                                    desc: "",
+                                    regions: [
+                                        {
+                                            name: "African Network Information Center",
+                                            abbreviation: "AfriNIC",
+                                            desc: "africa"
+                                        },
+                                        {
+                                            name: "Asia-Pacific Network Information Center",
+                                            abbreviation: "APNIC",
+                                            desc: "asia(se asia, china, india, japan) & australia"
+                                        },
+                                        {
+                                            name: "American Registry for Internet Numbers",
+                                            abbreviation: "ARIN",
+                                            desc: "North America",
+                                        },
+                                        {
+                                            name: "Latin American Network Information Center",
+                                            abbreviation: "LACNIC",
+                                            desc: "central & south america, and the Caribbean"
+                                        },
+                                        {
+                                            name: "",
+                                            abbreviation: "RIPE NCC",
+                                            desc: "Greenland, western europe, middleEast(saudi arabia, yemen, oman, iraq), russia"
+
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
