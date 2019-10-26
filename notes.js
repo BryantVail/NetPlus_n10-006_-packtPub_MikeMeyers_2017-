@@ -1783,7 +1783,12 @@ const book = {
                             name: "Numeral to Binary",
                             desc: "divide the numbers from 2^8 - starting from 128 - into the numeral representation and add a binary value of 1 for each number that can divide into the remainder of the numeral value",
                             notes: [
-                                "",
+                                "192.168.1.200; \
+                                    192/128= 1- 64/128, 64/64 = 1, 0/32 = 0, 0/16 = 0, 0/8 = 0, 0/4 = 0, 0/2 = 0, 0/1 = 0; \
+                                    168/128 = 1- 40/128, 40/64 = 0, 40/32 = 1- 8/32, 8/16 = 0, 8/8 = 1, 0/4  = 0, 0/2 = 0, 0/1 = 0; \
+                                    1/128 = 0, 1/64  = 0, 1/32 = 0, 1/16 = 0, 1/8 = 0, 1/4 = 0, 1/2 = 0, 1/1 = 1,            \
+                                    200/128 = 1- 72/128, 72/64 = 0, 72/32 = 1- 40/32, 8/16 = 0, 8/8 = 1, 0/4 = 0, 0/2 = 0, 0/1 = 0,\
+                                    ",
                             ]
                         },
                     ]
