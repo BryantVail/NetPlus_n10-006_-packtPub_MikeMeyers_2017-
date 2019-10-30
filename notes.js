@@ -1868,9 +1868,12 @@ const book = {
                     name: "Classful Addressing",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "classful subnetting was the first effor to divide NetworkIds",
+                        "Class A, B, and C Licenses",
+                        "Memorize the first Octet to know your Class Licenses",
                     ],
                     notes: [
+                        "",
                         "",
                     ],
                     aspects: [
@@ -1924,24 +1927,155 @@ const book = {
                             ]
                         },
                         {
+                            name: "Class Licenses",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "class A",
+                                    desc: "0-126, /8",
+                                    notes: [
+                                        "16.7 million IPs",
+                                        "service providers, not many people got them",
+                                    ]
+                                },
+                                {
+                                    name: "class B",
+                                    desc: "128-191, /16s",
+                                    notes: [
+                                        "65,534 addresses",
+                                    ]
+                                },
+                                {
+                                    name: "class C",
+                                    desc: "192-223, /24",
+                                    notes: [
+                                        "254 hosts",
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "subnetting",
+                            desc: "divides Network Ids into two or more networks",
+                            notes: [
+                                "/16's can be broken down into /24's within the network",
+                                "subnets do not have to happen at the byte increment",
+                                ""
+                            ]
+                        }
+                    ]
+                },//end Classful Addressing
+                {
+                    name: "Subnetting with Classless Inter-Domain Routing (CIDR)",
+                    abbreviation: "CIDR",
+                    desc: "",
+                    sectionTips: [
+                        "CIDR: Classless Inter-Domain Routing",
+                        "Subnet Masks all have a string of 1's, then a string of 0's (not intermingled)",
+                        "The more subnets, the fewer hosts are available"
+                    ],
+                    notes: [
+                        "around since mid-90's",
+                        "IP Address is actually 'just a binary string', not added up numbers, or divided by dots.",
+                        "subnets are: 'a string of 1's, followed by a string of 0's",
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Classless Addressing",
+                            desc: "subnetting outside of the 'byte' structure; splitting up networks absent the 'classful addressing (/8, /16, /24) paradigm",
+                            notes: [
+                                " ",
+                                ""
+                            ],
+                            examples: [
+                                {
+                                    name: "",
+                                    steps: [
+                                        "subnet & network as described",
+                                        "move subnet 'up' by 1, making it a /25",
+                                        "One set of netIds can be 208.25.160.0, and others can be 208.25.160.126 ("
+                                    ],
+                                    subnetMask: "/24",
+                                    networkId: "208.25.160.0",
+                                    notes: "252 hosts between the two networks in the /25 nets",
+                                    aspects: [
+                                        {
+                                            name: "network1",
+                                            subnetMask: "255.255.255.128 or /25",
+                                            networkId: "208.25.160.0",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.1-126 (can't be 0 or 127)"
+                                            ]
+                                        },
+                                        {
+                                            name: "network2",
+                                            subnetMask: "255.255.255.128 or /25",
+                                            networkId: "208.25.160.128",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.128 - 254 (can't be 128 or 255)"
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    name: "Breakdown /24 into a /26",
+                                    desc: "with 2+ bits added to the given subnet of /24 -being /26-, there are now 4 different combinations/networks that can be made; 00, 01, 10, 11. ",
+                                    steps: [
+                                        "subnet & network as described",
+                                        "move class-C subnet 'over' by 2, making it a /26",
+                                        "determine the 4 networkIds possible, host range on the net, and how many hosts per network",
+                                    ],
+                                    subnetMask: "/26",
+                                    networkId: "208.25.160.0",
+                                    notes: "{62} hosts between the 4 networks in the /26 nets",
+                                    aspects: [
+                                        {
+                                            name: "network1",
+                                            subnetMask: "255.255.255.192 or /26",
+                                            networkId: "208.25.160.0",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.1-62 (can't be 0 or 63)"
+                                            ]
+                                        },
+                                        {
+                                            name: "network2",
+                                            subnetMask: "255.255.255.192 or /26",
+                                            networkId: "208.25.160.64",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.65 - 126 (can't be 64 or 127)"
+                                            ]
+                                        },
+                                        {
+                                            name: "network3",
+                                            subnetMask: "255.255.255.192 or /26",
+                                            networkId: "208.25.160.128",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.129 - 190 (can't be 128 or 191)"
+                                            ]
+                                        },
+                                        {
+                                            name: "network3",
+                                            subnetMask: "255.255.255.192 or /26",
+                                            networkId: "208.25.160.192",
+                                            implications: [
+                                                "one group of addresses is 208.25.160.193 - 254 (can't be 192 or 255)"
+                                            ]
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                        {
                             name: "",
                             desc: "",
                             notes: [
                                 "",
                             ]
                         },
-                    ]
-                },//end Classful Addressing
-                {
-                    name: "Subnetting with CIDR",
-                    desc: "",
-                    sectionTips: [
-                        "",
-                    ],
-                    notes: [
-                        "",
-                    ],
-                    aspects: [
                         {
                             name: "",
                             desc: "",
@@ -1955,20 +2089,58 @@ const book = {
                     name: "More CIDR Subnetting Practice",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "CIDR: Classless Inter-Domain Routing",
+                        "Subnet Masks: all 1's on the left, then all 0's to the right",
+                        "more subnets from the NetworkId, the fewer amount of hosts are available",
                     ],
                     notes: [
-                        "",
+                        "/24 gives 254 hosts",
                     ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "Dynamic IP Addresses",
+                            desc: "the IP changes",
                             notes: [
                                 "",
                             ]
                         },
-                    ]
+                        {
+                            name: "Static IP Address",
+                            desc: "An IP that is set not to change",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ],
+                    examples: [
+                        {
+                            name: "example#1",
+                            timestamp: "4:36",
+                            desc: "4 IPs for 4 servers in the Rack",
+                            notes: [
+                                "1, 5, or 14 IPs",
+                                "always have an IP for the Router/Gateway",
+                                "instead of 6, they're keeping the 6th for the router",
+                                "/29 is what will be used; (255.255.255.248) leaves 6 addresses, -1 for the router, 5-4 for each server, 1 is left over",
+                                
+                            ]
+                        },
+                        {
+                            name: "example#2",
+                            timestamp: "6:15",
+                            desc: "8 IPs needed as a minimum.",
+                            notes: [
+                                "/28 given for the subnet, 14 addresses",
+                                ""
+                            ],
+                            subnet: "/28; 255.255.255.240",
+                            networkId: "199.44.6.80; ",
+                            implications: [
+                                "/28.81-94 are the addresses; 14IPs - 1 for the router = 13",
+                                ""
+                            ]
+                        },
+                    ],
                 },//end 'More CIDR Subnetting Practice'
                 {
                     name: "Dynamic and Static IP addressing",
@@ -1999,6 +2171,96 @@ const book = {
                         "",
                     ],
                     aspects: [
+                        {
+                            name: "static IP addressing",
+                            desc: "set the IP for the device",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Dynamic IP",
+                            desc: "changes according to a protocol",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Dynamic Host Configuration Protocol",
+                            abbreviation: "DHCP",
+                            desc: "changes according to a protocol",
+                            notes: [
+                                "Linux: 'BootP' or 'Bootstrap Protocol'",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Commands",
+                                    commands: [
+                                        {
+                                            command: "ipconfig",
+                                            desc: "shows network info for windows device; gateway, mask, ipV4",
+                                            notes: [
+                                                "mac & linux version is 'ifConfig'"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Clients",
+                                    desc: "computers that use the DHCP server",
+                                    notes: [
+                                        "most or all OS's use DHCP by default",
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Discover",
+                                    desc: "sends out this message to obtain an IP",
+                                    notes: [
+                                        "sends a broadcast to all devices on the 'Broadcast Domain'",
+                                        "waiting for a 'DHCP' offer"
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Offer",
+                                    desc: "Uni-cast response to a 'DHCP Discover' directly to the requester",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Request",
+                                    desc: "response to offer, to obtain an IP",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Acknowledgement",
+                                    desc: "stores the client info",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "DHCP Server",
+                                    desc: "",
+                                    notes: [
+                                        "only have One DHCP Server on the broadcast domain",
+                                        ""
+                                    ],
+                                    tips: [
+                                        {
+                                            type: "Security",
+                                            desc: "cannot alter settings for the Router/DHCP server over a wireless connection"
+                                        },
+                                        {
+                                            type: "",
+                                            desc: "",
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
