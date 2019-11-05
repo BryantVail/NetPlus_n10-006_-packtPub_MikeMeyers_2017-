@@ -3801,14 +3801,115 @@ const book = {
             sections: [
                 {
                     name: "The Domain Name System (DNS), part: 1",
-                    desc: "",
+                    desc: "resolve IPs based on 'Fully Qualified Domain Name'",
                     sectionTips: [
-                        "",
+                        "DNS resolves FQDNs to IP addresses",
+                        "{hostName}.{secondary-domain}.{top-level-domain} = FQDN",
+                        "'.com' & '.edu' are TLD's",
                     ],
                     notes: [
-                        ""
+                        "contacts vs domain-names",
+                        "resolve IPs based on 'Fully Qualified Domain Names' (FQDN), time: 1:50mins",
+                        "DNS's respond to DNS requests/queries, and MAKE Queries to other DNS's."
                     ],
                     aspects: [
+                        {
+                            name: "Fully Qualified Domain Name",
+                            desc: "",
+                            notes: [
+                                "top-level domain names",
+                                "'www.houston.texas.houston.totalSem.com' < 256 characters"
+                            ],
+                            aspects: [
+                                {
+                                    name: "top-level domain name",
+                                    desc: "",
+                                    notes: [
+                                        "com, gov, edu, cc",
+                                    ]
+                                },//end top-level domain name
+                                {
+                                    name: "Host Name",
+                                    desc: "Name of 1 PC within the 'totalSem'/{domain} domain",
+                                    notes: [
+                                        "www",
+                                        "convention is the power of www",
+                                        "ftp.totalSem.com",
+                                        "mail.totalSem.com",
+                                    ]
+                                },//end Host Name
+                                {
+                                    name: "Secondary-Domain",
+                                    desc: "HostName.{totalSem}.TLD",
+                                    notes: [
+                                        "",
+                                    ]
+                                },//end Secondary-Domain
+                            ]
+                        },
+                        {
+                            name: "Resolving IPs based on 'FQDN's",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            examples: [
+                                {
+                                    premise: "request resources from a web server",
+                                    fqdn: "www.totalSem.com",
+                                    notes: [
+                                        "a client never directly queries a DNS server",
+                                        "computers have their own DNS server also",
+                                        "ISPs provide DNS addresses also",
+                                        "IpConfig /all will show DNS server info; often the SOHO rtr is the DNS",
+                                    ],
+                                    implications: [
+                                        "I have to be able to get the IP of the web server to get the resource"
+                                    ],
+                                    webServerIp: "68.109.30.145",
+                                    domainName: "dell.com",
+                                    steps: [
+                                        {
+                                            desc: "sends query to the DNS server for the IP for 'www.dell.com'",
+
+                                        },
+                                        {
+                                            desc: "One Moment please; \"waiting for {domain} to respond\" is an example of this step",
+                                        },
+                                        {
+                                            desc: "",
+                                            time: "8:00",
+                                            aspects: [
+                                                {
+                                                    name: "root hints",
+                                                    desc: "built into most DNS servers, designed to resolve domains; all over the world- responds with the closest '.com' server",
+                                                    notes: [
+                                                        "after finding the '.com' server from the 'root hints' resource, we can find the IP (10:22mins)",
+                                                    ]
+                                                },
+                                                {
+                                                    name: "DNS Cache",
+                                                    desc: "on each machine, a semi-temporary store of DNS resolutions",
+                                                    notes: [
+                                                        "first DNS outside the local machine ALSO keeps a cache- helping other user machines",
+                                                        "",
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            aspects: [
+                                {
+                                    name: "Authoritative Server",
+                                    notes: [
+                                        "there are many listings in such a server, and this as well",
+                                        "if we can make a request to this server that has the DomainName in question- we can resolve it."
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
@@ -3822,12 +3923,87 @@ const book = {
                     name: "The Domain Name System (DNS), part: 2",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Forward Lookup Zones Resolve FQDNs to IP addresses",
+                        "SOA is the Authoritative name server for a particular domain",
+                        "A (IPv4), and 'AAAA' (IPv6) are records for hosts"
                     ],
                     notes: [
+                        "many types of DNS",
+                        "UNIX/Linux systems use 'BIND' for DNS serving; text files M.M. said",
+                        "Windows Server also comes with DNS",
+                        "multiple DNS servers to maintain service",
                         ""
                     ],
                     aspects: [
+                        {
+                            name: "Forward Lookup Zones",
+                            desc: "resolve IPs from FQDN",
+                            notes: [
+                                "updates; allow both secure & insecure",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Primary Zone",
+                                    desc: "new domain",
+
+                                },
+                                {
+                                    name: "secondary Zone",
+                                    desc: "already have a primary DNS, just setting up for a backup",
+                                },
+                                {
+                                        name: "Start Of Authority",
+                                        abbreviation: "SOA",
+                                        desc: "Authoritative server for a given domain name",
+                                        notes: [
+                                            "",
+                                        ]
+                                },
+                                {
+                                    name: "Name Server",
+                                    desc: "Provides quick FQDN to IP address resolution; can have many of these"
+                                },
+                                {
+                                    name: "Host 'A'",
+                                    desc: "returns the address for a given ",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Host 'AAAA'",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "CNAME",
+                                    desc: "Alias for the domain",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "MX",
+                                    desc: "Mail Exchanger",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "SRV",
+                                    desc: "Service Location- generally uncommon",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Reverse Lookup Zones",
+                            desc: "IPs to FQDN",
+                            notes: [
+                                "",
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
@@ -3839,11 +4015,15 @@ const book = {
                 },//end The Domain Name System (DNS), part: 2
                 {
                     name: "The Hosts File",
-                    desc: "",
+                    desc: "text file, listing names & IPs- before domain names",
                     sectionTips: [
-                        "",
+                        "HOSTS file contains IP addresses and their corresponding names",
+                        "every computer that runs TCP/IP has a 'hosts' file",
+                        "HOSTS file takes precedence over DNS"
                     ],
                     notes: [
+                        "host file still exists, and takes precedent over DNS",
+                        "C:\\Windows\\System32\\Drivers\\etc\\hosts",
                         ""
                     ],
                     aspects: [
@@ -3860,17 +4040,62 @@ const book = {
                     name: "Windows Name Resolution",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "NetBIOS is an older protocol that manages connections based on the names of the computers within a LAN",
+                        "Link-Local Multicast Name Resolution (LLMNR) is a protocol that allows hosts to name resolution for hosts on the same local link",
+                        "NBTStat is a diagnostic tool that can be useful but has some issues with LLMNR"
                     ],
                     notes: [
-                        ""
+                        "if member of a domain, it will go to the domain server"
                     ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "NetBIOS",
+                            desc: "without domain, used to handle name resolution",
                             notes: [
                                 "",
+                            ],
+                            ports: [137, 138, 139],
+                        },
+                        {
+                            name: "Link Local Multi-Cast Name Resolution",
+                            abbreviation: "LLMNR",
+                            desc: "",
+                            notes: [
+                                "introduced to replace netBIOS",
+                                "today's system; win10 pro -> netBIOS & LLMNR both run"
+                            ],
+                            port: 5355,
+                            porttype: "UDP",
+                        },
+                        {
+                            name: "nbtstat",
+                            desc: "tool to show registered names on the network",
+                            notes: [
+                                "since windows networking started",
+                                "doesn't play well with LLMNR",
+                                "looks for registered names"
+                            ],
+                            subCommands: [
+                                {
+                                    name: "/n",
+                                    desc: "list local netBIOS names",
+                                },
+                                {
+                                    name: "/c",
+                                    desc: "lists NBT's cache of remote machine names and their IPs",
+                                },
+                                {
+                                    name: "/a {machine name}",
+                                    desc: "lists the remote machine's name table given its name"
+                                },
+                                {
+                                    name: "/R",
+                                    desc: " (reload); purges & reloads the remote cache name table"
+                                },
+                                {
+                                    name: "/RR",
+                                    desc: "Release + Refresh; re-broadcast cache"
+                                }
                             ]
                         },
                     ]
@@ -3879,15 +4104,68 @@ const book = {
                     name: "NET Command",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "net command is older & helps manage the network",
+                        "net command has many different options to manage your net; net use, net share, etc",
+                        "'net view' command shows everything that is on the network",
                     ],
                     notes: [
-                        ""
+                        "been around longer than windows",
+                        "Microsoft LAN Manager", 
+                        "still found on Windows 10",
                     ],
-                    aspects: [
+                    commands: [
                         {
-                            name: "",
+                            name: "net view",
+                            desc: "what computers can my system see within the workgroup",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net user",
+                            desc: "shows user accounts for the machine",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net view \\{pcName}",
                             desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net use {drive letter} \\{pcName}\\{folderName}",
+                            desc: "mapping a drive; assigning a drive letter to a folder",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net share {sharedName}={resourceLocation}",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net accounts",
+                            desc: "user parameters; password age, max length, computer role, etc",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net start",
+                            desc: "shows all windows running services",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "net stop",
+                            desc: "stops a service by name",
                             notes: [
                                 "",
                             ]
@@ -3896,11 +4174,14 @@ const book = {
                 },//end 'NET Command'
                 {
                     name: "Dynamic DNS",
+                    abbreviation: "DDNS",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Dynamic DNS enables you to use a DHCP-Assigned IP address for connection",
+                        "DDNS providers can update IP information"
                     ],
                     notes: [
+                        "using our public WAN address still leaves us subject to a dynamically offered IP that could change",
                         ""
                     ],
                     aspects: [
@@ -3917,19 +4198,66 @@ const book = {
                     name: "DNS Troubleshooting",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "IP address of a website to test connectivity without dns",
+                        "ipconfig /flushdns to clear the DNS cache",
+                        "'nslookup' or 'dig' to check the status of a DNS server"
                     ],
                     notes: [
-                        ""
+                        "DNS goes down sometimes",
+                        "Server cannot be found, The DNS lookup failed",
+                        "If an IP address works, and the Domain name does not result in a web page, then the DNS is the problem"
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "misconfiguration check",
+                            desc: "",
+                            notes: [
+                                "check the DNS server IP, set to automatic if not already",
+                                ""
+                            ]
+                        },
+                        {
+                            name: "Cached DNS resolutions holding stale data",
                             desc: "",
                             notes: [
                                 "",
+                            ],
+                            commands: [
+                                {
+                                    name: "ipconfig /displaydns",
+                                    desc: "shows local dns cache"
+                                },
+                                {
+                                    name: "ipconfig /flushDNS",
+                                    desc: "flushes dns cache"
+                                }
                             ]
                         },
+                        {
+                            name: "nslookup",
+                            standsFor: "Name Saver Lookup",
+                            desc: "lookup default dns server information",
+                            notes: [
+                                "most dns servers are made to ignore this command (MMeyers",
+                            ],
+                            otherCommands: [
+                                "server {dns ip}"
+                            ]
+                        },
+                        {
+                            name: "dig",
+                            standsFor: "domain information groper",
+                            desc: "tests DNS servers",
+                            notes: [
+                                "not standard in windows",
+                                "unix/linux has this automatically"
+                            ],
+                            url: "http://www.eztk.com/products/ezdig.php"
+                        },
+                        {
+                            name: "ping",
+                            desc: "ping can be done with FQDN's, testing the dns"
+                        }
                     ]
                 },//end 'DNS Troubleshooting'
             ]
@@ -3940,13 +4268,41 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
-                    desc: "",
+                    name: "Symmetric Encryption",
+                    desc: "same key used to encrypt -as well as- decrypt the value",
                     sectionTips: [
-                        "",
+                        "cleartext is any unencrypted data",
+                        "algorithms use keys to encrypt cleartext into cyphertext",
+                        "Symmetric Encryption: an algorithm that uses the same key to encrypt & decrypt"
                     ],
-                    notes: "",
+                    notes: [
+                        "hardrives, email, video- many applications for encryption",
+                        "encryption: key value + Algorithm"
+                    ],
                     aspects: [
+                        {
+                            name: "caesar's cypher",
+                            desc: "one letter exchanges for another",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Algorithms",
+                            desc: "",
+                            notes: [
+                                "uses a specific key as a seed into the process",
+                                "use the key for each letter",
+                                "produces 'cyphertext'"
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
@@ -3955,7 +4311,462 @@ const book = {
                             ]
                         },
                     ]
-                },
+                },//end Symmetric Encryption
+                {
+                    name: "Asymmetric Encryption",
+                    desc: "",
+                    sectionTips: [
+                        "Asymmetric encryption uses a public & private key",
+                        "public keys encrypt, private keys decrypt",
+                        "for two people to communicate, they must exchange public keys",
+                    ],
+                    notes: [
+                        "Rivest Shamir Adlema",
+                        "public + private key = pair",
+                        ""
+                    ],
+                    aspects: [
+                        {
+                            name: "symmetric encryption shortcomings",
+                            desc: "",
+                            notes: [
+                                "with the key, makes it easy to hack",
+                                "",
+                            ]
+                        },
+                        {
+                            name: "private key",
+                            desc: "key that only 'decrypts'",
+                            notes: [
+                                "this is kept very safe; encrypted folder or drive",
+                                "",
+                            ]
+                        },
+                        {
+                            name: "public key",
+                            desc: "key that only 'encrypts'",
+                            notes: [
+                                "",
+                                "",
+                            ]
+                        },
+                        {
+                            name: "key exchange",
+                            desc: "anyone can encrypt, send, then the private key can decrypt",
+                            notes: [
+                                "",
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Asymmetric Encryption
+                {
+                    name: "Cryptographic Hashes",
+                    desc: "",
+                    sectionTips: [
+                        "Hashes are used to verify data, not for encryption",
+                        "hash values are always fixed in size",
+                        "two common hashes are 'MD5' and 'SHA-1'"
+                    ],
+                    notes: [
+                        "just want to make sure the data is good- the same",
+                    ],
+                    aspects: [
+                        {
+                            name: "Hash",
+                            desc: "algorithm, producing a string of text- fixed in size- that would result in the exact same value only if its the same input",
+                            notes: [
+                                "commonly used when downloading",
+                                ""
+                            ],
+                            notables: [
+                                {
+                                    name: "SHA-1",
+                                    desc: "",
+                                },
+                                {
+                                    name: "SHA-2",
+                                    desc: "starting to show up some",
+                                    notes: [
+                                        "anything that starts with the 2; sha-256, sha-512"
+                                    ]
+                                },
+                                {
+                                    name: "MD5",
+                                    desc: "",
+                                }
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Cryptographic Hashes
+                {
+                    name: "Access Control",
+                    desc: "",
+                    sectionTips: [
+                        "Mandatory Access control uses labels",
+                        "Discretionary Access control gives the creators control over permissions",
+                        "Role-Based Access Control uses Groups"
+                    ],
+                    notes: [
+                        "allowing access to the computer; Authentication & Authorization",
+                    ],
+                    aspects: [
+                        {
+                            name: "Authentication",
+                            desc: "verify someone is who they're supposed to be",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Authorization",
+                            desc: "what are they allowed to do; roles & permissions",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Access Control List",
+                            desc: "",
+                            notes: [
+                                "network, folder, PC, software",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Mandatory Access Control",
+                                    desc: "labels on a resource, based on the label- someone would be able to do it",
+                                    notes: [
+                                        "was limiting, rigid"
+                                    ]
+                                },
+                                {
+                                    name: "Discretionary Access Control",
+                                    desc: "more flexibility & inheriting",
+                                    notes: [
+                                        "owner",
+                                        "readers",
+                                        "writers"
+                                    ]
+                                },
+                                {
+                                    name: "Role Based Access Control",
+                                    desc: "based on group access",
+                                    notes: [
+                                        "'users' go into 'groups', that get access to folders"
+                                    ]
+                                },
+                                {
+                                    name: "",
+                                    desc: "",
+                                },
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Access Control
+                {
+                    name: "AAA",
+                    desc: "Authentication, Authorization, Accounting(keeps track)",
+                    sectionTips: [
+                        "RADIUS client is an intermediary agent between a RADIUS supplicant and a RADIUS server",
+                        "a RADIUS database of 'Authenticated' users and passwords may reside outside the RADIUS server",
+                        "RADIUS uses UDP ports 1812 & 1813, or 1645 & 1646", 
+                        "TACACS+ uses TCP: 49"
+                    ],
+                    notes: [
+                        "",
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "RADIUS Server",
+                            desc: "running some type of radius authentication software",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "RADIUS client",
+                            desc: "handle RADIUS requests from RADIUS supplicants",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "RADIUS Supplicants",
+                            desc: "requesting RADIUS services",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "RADIUS",
+                            ports: [1812, 1813, 1645, 1646],
+                            portType: "UDP",
+                            notes: [
+                                "ports are used as a contiguous pair"
+                            ]
+                        },
+                        {
+                            name: "TACACS+",
+                            abbreviation: "TACACS+",
+                            desc: "cisco",
+                            ascpects: [
+                                {
+                                    name: "port",
+                                    port: 49,
+                                    portType: "TCP",
+                                }
+                            ]
+                        }
+                    ]
+                },//end AAA
+                {
+                    name: "Kerberos/EAP",
+                    desc: "",
+                    sectionTips: [
+                        "Kerberos handles authentication and authorization for wired networks",
+                        "Kerberos relies heavily on time stamps",
+                        "EAP enables flexible authentication"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Kerberos",
+                            desc: "authentication for local area networks",
+                            notes: [
+                                "works different than PPP",
+                                "stamps are important in Kerberos",
+                                "Kerberos uses Key Distribution Centers"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Downsides",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "have to have Windows Server",
+                                            desc: "",
+                                        },
+                                        {
+                                            name: "everything is time stamped",
+                                            desc: "man in the middle attacks are hindered but has a vulnerability within the gap of time",
+                                        },
+                                        
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "PPP",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Key Distribution Center",
+                            abbreviation: "KDC",
+                            desc: "",
+                            notes: [
+                                "when a windows server is a domain controller, it becomes a Kerberos Key Distribution center",
+                            ],
+                            sequence: [
+                                "client PC on the domain sends in Hashed values of user/pass",
+                                "server sends back the TGT, getting him 'Authenticated' but not authorized",
+                                "client sends the TGT back to the server",
+                                "at this point the server returns the result of the exchange, now a 'token'"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Authentication Server",
+                                },
+                                {
+                                    name: "Ticket Granting Service",
+                                    abbreviation: "TGS",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "Ticket Granting Ticket",
+                                            abbreviation: "TGT",
+                                            desc: "",
+                                            notes: [
+                                                "token- after exchange and stamps- are often good for 8hrs",
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "Extensible Authentication Protocol",
+                            abbreviation: "EAP",
+                            desc: "transactional based authentication mechanisms to be able to talk to each other & query available services",
+                            notes: [
+                                "an envelope; burst of data from rquester & server- EAP determines what can be done",
+                                "almost exclusively used on wireless networks"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Personal Shared Key",
+                                    desc: "Common Key everyone uses",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Password Encrypted Authentication Protocol",
+                                    abbreviation: "PEAP",
+                                    desc: "standard username & password for each user",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "eap-md5 (hash)",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "certificates",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ],
+                                    certificates: [
+                                        {
+                                            name: "eap-TLS",
+                                            desc: "single certificate, from the server of the system",
+                                            notes: [
+                                                "",
+                                            ]
+                                        },
+                                        {
+                                            name: "eap-TTLS",
+                                            desc: "individual clients & authenticating system to each have certificates",
+                                            notes: [
+                                                "",
+                                            ]
+                                        },
+                                        {
+                                            name: "",
+                                            desc: "",
+                                            notes: [
+                                                "",
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    name: "",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        }
+                    ]
+                },//end Kerberos/EAP
+                {
+                    name: "Cryptographic Tunnels with SSH",
+                    desc: "",
+                    sectionTips: [
+                        "very few Internet Protocols are encrypted",
+                        "create encryption, or run through a piggybacked protocol that is Encrypted",
+                        "Tunnels are used to encrypt 'unencrypted' protocols",
+                    ],
+                    notes: [
+                        "piggyback a protocol that's already encrypted",
+                        ""
+                    ],
+                    aspects: [
+                        {
+                            name: "Tunnels",
+                            desc: "used to encrypt unencrypted protocols",
+                            notes: [
+                                "",
+                            ],
+                            sequence: [
+                                "make an SSH connection",
+                                "have SSH take commands directly from another program/client",
+                                "SSH Encrypts and gets data to the recipient",
+                                "this is tunneling; using SSH (or other encryption) as a go between two computers communicating where otherwise there wouldn't be"
+                            ]
+                        },                        
+                    ]
+                },//end Cryptographic Tunnels with SSH
+                {
+                    name: "Network Time Protocol",
+                    abbreviation: "NTP",
+                    port: 123,
+                    desc: "",
+                    sectionTips: [
+                        "The Network Time Protocol Tells the current time",
+                        "NTP uses port 123",
+                        "There are hundreds of NTP servers worldwide"
+                    ],
+                    notes: [
+                        "Windows uses Kerberos, so TIME is important",
+                        "time.windows.com",
+                        "Hundreds of protocols rely on NTP",
+                    ],
+                    aspects: [
+                        {
+                            name: "time.windows.com",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            destination: "date and time > 'Internet Time' tab > Server: [dropdown]"
+                        },
+                    ]
+                },//end Network Time Protocol
             ]
         },//end 'Securing TCP/IP' (11)
         {
@@ -3964,13 +4775,260 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "Client/Server vs Peer-to-Peer",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Older Client/Server networks had dedicated servers & clients",
+                        "classic Peer-to-Peer networks, each machine would act as both a client & a server",
+                        "the terms are now more in the sense of a 'web' client, accessing a 'web' server",
                     ],
-                    notes: "",
+                    notes: [
+                        "Modern computers make traditional client/server and peer-to-peer models irrelevant",
+                        "internet follows client/server model for the most part",
+
+                    ],
                     aspects: [
+                        {
+                            name: "Client/Server",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Client",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Server",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "Peer-to-Peer",
+                            desc: "",
+                            notes: [
+                                "wasn't very secure in the past, a little clunky",
+                                "now any computer can be a client or a server",
+                                "computers working together to share data",
+                            ]
+                        },
+                        {
+                            name: "Novell NetWare",
+                            desc: "clients would gain drive access by running the client for the specific server; had its own OS",
+                            notes: [
+                                "ran on a dedicated server machine",
+                                "clients would gain drive access by running the client for the specific server"
+                            ]
+                        },
+                        {
+                            name: "Microsoft LAN Manager",
+                            desc: "any computer can be a client or a server",
+                            notes: [
+                                "",
+                            ]
+                        }
+                    ]
+                },//end Client/Server vs Peer-to-Peer
+                {
+                    name: "Virtual Private Networks",
+                    desc: "vpn tunnel connects a remote computer to an endpoint, usually a router",
+                    sectionTips: [
+                        "VPN creates a secure tunnel so a remote machine or network can be part of a local network",
+                        "client-to-site VPN connects a remote computer to a local network",
+                        "site-to-site VPN connects distant networks into a single network",
+                    ],
+                    notes: [
+                        "being on our LAN from far away",
+                        "we've got a 'layer1' connection from anywhere on the internet, into the office LAN",
+                        "remotely being in the network, like having the IP from the LAN",
+                        "creates a virtual NIC in network & sharing center",
+                    ],
+                    aspects: [
+                        {
+                            name: "VPN Packet",
+                            desc: "",
+                            notes: [
+                                "we want the devices to communicate within the same broadcast domain, having the same IPs",
+                                "If the device is on a different/remote network- it will be given its own IP",
+                                "creates a tunnel between the remote computer to an endpoint, usually a router."
+                            ],
+                            parts: [
+                                "data",
+                                {
+                                    name: "IP-To (local)",
+                                    desc: "",
+                                },
+                                {
+                                    name: "IP-From (local)",
+                                    desc: "",
+                                },
+                                {
+                                    name: "IP-To",
+                                    desc: "Remote LAN Address",
+                                },
+                                {
+                                    name: "IP-From (local)",
+                                    desc: "Dynamically given IP from remote network",
+                                },
+                            ]
+                        },//end VPN Packet
+                        {
+                            name: "Data Encryption",
+                            desc: "",
+                            notes: [
+                                "usually EAP",
+                            ],
+                            types: [
+                                {
+                                    name: "EAP-TTLS",
+                                    desc: "requires certificates",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "client-to-site VPN",
+                            desc: "connects a remote computer to a LAN",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "VPN endpoint",
+                                    desc: "router to act as the entry-point for VPN clients",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "VPN Concentrator",
+                                    desc: "",
+                                    notes: [
+                                        "VPN concentrator that is not also a router, is a VPN endpoint"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "VPN Concentrator",
+                            desc: "router that acts as a VPN endpoint",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Site-to-Site VPN",
+                            desc: "connects distant networks into a single network",
+                        },
+                        {
+                            name: "types",
+                            notes: [
+                                "choose based on the VPN server",
+
+                            ],
+                            types: [
+                                {
+                                    name: "Point to Point Tunneling Protocol",
+                                    abbreviation: "PPTP",
+                                    desc: "",
+                                    notes: [
+                                        "Microsoft commonly uses this",
+                                    ]
+                                },
+                                {
+                                    name: "Layer 2 Tunneling Protocol with IPsec",
+                                    abbreviation: "L2TP/IpSec",
+                                    desc: "Cisco type; ",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Secure Socket [Layer] Tunneling Protocol",
+                                    abbreviation: "SSTP",
+                                    desc: "",
+                                    notes: [
+                                        "most common",
+                                        "started out as more simplistic, but has matured"
+                                    ]
+                                },
+                                {
+                                    name: "IKEv2",
+                                    abbreviation: "IKEv2",
+                                    desc: "IpSec VPN",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        }//end Types
+                    ]
+                },//end Virtual Private Networks
+                {
+                    name: "introduction to VLANs",
+                    desc: "splits one Broadcast domain into multiple; separate broadcast domains virtually",
+                    sectionTips: [
+                        "VLAN Splits one broadcast domain into two or more broadcast domains",
+                        "managed switch that supports VLANs requires configuration",
+                        "Trunking enables VLANs to be on more than one Switch",
+                    ],
+                    notes: [
+                        "Hide resources",
+                        "Virtual LAN",
+                        "default VLAN = 1",
+
+                    ],
+                    aspects: [
+                        {
+                            name: "Switches",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "managed swtich",
+                                    desc: "have features above just connecting devices on a broadcast domain- like VLANs",
+                                    notes: [
+                                        "More expensive typically",
+                                        "can obtain IP addresses"
+                                    ],
+                                },
+                                {
+                                    name: "unmanaged switch",
+                                    desc: "connects devices on a broadcast domain",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "Who will go on the VLAN",
+                            desc: "The ports that will be included on the VLAN",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "trunking",
+                                    desc: "move traffic from all VLANs between switches",
+                                    notes: [
+                                        "802.1Q"
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             name: "",
                             desc: "",
@@ -3979,7 +5037,319 @@ const book = {
                             ]
                         },
                     ]
-                },
+                },//end introduction to VLANs
+                {
+                    name: "InterVLAN Routing",
+                    desc: "Acts as one or more virtual routers; virtualization of the functions of a router, thats put into higher end switches",
+                    sectionTips: [
+                        "VLANs create separate broadcast domains",
+                        "Connect the broadcast domains with physical routers",
+                        "can also connect broadcast domains with virtual routers using 'interVLAN routing"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end InterVLAN Routing
+                {
+                    name: "Interfacing with Managed Switches",
+                    desc: "",
+                    sectionTips: [
+                        "Managed Switches require configuration",
+                        "connect to a managed switch Via an IP address or console port",
+                        "Cisco Routers use an Operating System called IOS",
+                    ],
+                    notes: [
+                        "switches use MACs, Layer2",
+                    ],
+                    aspects: [
+                        {
+                            name: "Console Port",
+                            desc: "management port on a managed switch",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Rollover Cable",
+                            desc: "plugs into the console port for management",
+                            notes: [
+                                "dd9 serial",
+                                "looks RJ45 but not configured/wired the same way"
+                            ]
+                        },
+                        {
+                            name: "telnet (putty client) ",
+                            desc: "connection through the Ethernet Port will also work for management",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Simple Network Management Protocol",
+                            desc: "used on switches & routers to get information/monitor",
+                            notes: [
+                                "used for monitoring switches mostly",
+                            ]
+                        },
+                        {
+                            name: "Internet Group Management Protocol",
+                            desc: "Multicast traffic facilitator",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Port Rate Ingress and Egress Setting",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Interfacing with Managed Switches
+                {
+                    name: "Port Bonding",
+                    desc: "increase bandwidth of the trunk line",
+                    sectionTips: [
+                        "Port Bonding Links Switchports to increase bandwidth",
+                        "LACP (Link Aggregation Control Protocol) for the trunking protocol",
+                        "set ports to active",
+                    ],
+                    notes: [
+                        "link aggregation, channel bonding, NIC bonding, NIC teaming",
+                        "add another trunk port on each switch"
+                    ],
+                    aspects: [
+                        {
+                            name: "Cisco Commands",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            commands: [
+                                {
+                                    name: "conf t",
+                                    desc: "brings up 'configuration terminal'"
+                                },
+                                {
+                                    name: "int port",
+                                    desc: "",
+                                    notes: [
+                                        "follow the command with the 'port-channel' number",
+
+                                    ]
+                                },
+                                {
+                                    name: "int port-channel",
+                                    desc: "Make a group, then assign which switchport are in the group",
+                                    notes: [
+                                        "follow the command with the 'port-channel' number",
+
+                                    ]
+                                },
+                                {
+                                    name: "switchport mode trunk",
+                                    desc: "change the port mode to 'trunk'",
+                                    notes: [
+                                        "",
+
+                                    ]
+                                },
+                                {
+                                    name: "int {portId}",
+                                    desc: "",
+                                    notes: [
+                                        "portId: fa0/23",
+
+                                    ]
+                                },
+                                {
+                                    name: "channel-group 1 mode 'active'",
+                                    desc: "changes the group '1' to 'active' mode, makes the port seek out another bonding port",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Link Aggregation Control Protocol",
+                                    abbreviation: "LACP",
+                                    notes: [
+                                        "switches from diff brands would be compatible",
+
+                                    ]
+                                },
+                                {
+                                    name: "show int port-channel 1",
+                                    desc: "show interface 'port-channel' 1",
+                                    notes: [
+                                        "reads out the parameters of this group",
+                                    ]
+                                }
+
+                            ]//end commands
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Port Bonding
+                {
+                    name: "Port Mirroring",
+                    desc: "monitor IP traffic remotely",
+                    sectionTips: [
+                        "enables the traffic flowing through one port to be monitored on another",
+                        "enables administrators to inspect traffic remotely from a suspect machine",
+                        "configured on a switch by providing source & destination ports"
+                    ],
+                    notes: [
+                        "can't sniff traffic on a basic switch",
+                        "can listen to port traffic with a managed switch",
+                    ],
+                    aspects: [
+                        {
+                            name: "commands",
+                            desc: "set the 'source' of the sniffing and the 'destination' of where to send it",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "monitor session 1 source interface fa 0/22",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "monitor session 1 destination interface fa 0/23",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },// end Port Mirroring
+                {
+                    name: "Quality of Service",
+                    desc: "mechanism to implement 'traffic shaping'",
+                    sectionTips: [
+                        "'quality of service' controls help manage available bandwidth",
+                        "traffic shaping is a type of QoS",
+                        "QoS on SOHO routers allow priorities for protocols or devices",
+                    ],
+                    notes: [
+                        "mbps",
+                        "priority levels",
+                    ],
+                    aspects: [
+                        {
+                            name: "traffic shaping",
+                            desc: "configure priority based on parameters",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Quality of Service
+                {
+                    name: "IDS vs IPS",
+                    desc: "",
+                    sectionTips: [
+                        "intrusion detection systems detect and report possible attacks to the admins",
+                        "intrusion prevention systems run inline with network and act to stop detected attacks",
+                        "firewall: filtration, IDS: notifies, IPS: acts to stop threat"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "firewalls",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Intrusion Detection System",
+                            desc: "Watch for threats on the network",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "Intrusion Prevention Sysems",
+                            desc: "watch for threats on the network, and also the capacity to change network traffic based on a perceived threat",
+                            notes: [
+                                "tends to be 'inline' between gateway and users",
+                            ]
+                        },
+                    ]
+                },//end IDS vs IPS
             ]
         },//end 'Advanced Networking Devices' (12)
         {
@@ -3993,7 +5363,9 @@ const book = {
                     sectionTips: [
                         "",
                     ],
-                    notes: "",
+                    notes: [
+                        "",
+                    ],
                     aspects: [
                         {
                             name: "",
@@ -4017,7 +5389,9 @@ const book = {
                     sectionTips: [
                         "",
                     ],
-                    notes: "",
+                    notes: [
+                        "",
+                    ],
                     aspects: [
                         {
                             name: "",
