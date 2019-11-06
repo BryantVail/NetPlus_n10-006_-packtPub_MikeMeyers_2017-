@@ -5361,13 +5361,16 @@ const book = {
                     name: "Introduction to IPv6 addressing",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "128-bit IPv6 addresses are replacing 32-bit ipv4 addresses over time",
+                        "know the rules for abbreviating IPv6 Addresses",
+                        "IPv6 Loopback is ::1",
                     ],
                     notes: [
                         "128 bits",
                         "drop leading 0's",
                         "8 groups divided by colons",
-                        "hexadecimal"
+                        "hexadecimal",
+                        "compress & extend",
                     ],
                     example: "00c9:04d7:0000:f8ff:0000:0000:fe21:67cf",
                     aspects: [
@@ -5397,6 +5400,7 @@ const book = {
                         {
                             name: "IPv6 Loopback",
                             desc: "0000:0000:0000:0000:0000:0000:0000:0001",
+                            abbreviation: "::1",
                             notes: [
                                 "",
                             ]
@@ -5417,11 +5421,52 @@ const book = {
                         "",
                     ],
                     notes: [
-                        "",
+                        "never type in a subnet mask",
+                        "they're ALL /64",
+                        "front half from somewhere",
+                        "other half from MAC",
+                        "often: 2001:, or 2002: ; not a set rule"
+
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "Parts of the IPv6 Address",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "last half of the address",
+                                    desc: "",
+
+                                }
+                            ]
+                        },
+                        {
+                            name: "Dual Stack",
+                            desc: "Running both IPv6 & IPv4 at the same time",
+                            notes: [
+                                "NICs can do this",
+                            ]
+                        },
+                        {
+                            name: "Link Local Address",
+                            desc: "starts with fe80; ",
+                            notes: [
+                                "fe80: {the rest}",
+                            ]
+                        },
+                        {
+                            name: "Extended Unique Identifier 64",
+                            abbreviation: "EUI-64",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "registration",
                             desc: "",
                             notes: [
                                 "",
