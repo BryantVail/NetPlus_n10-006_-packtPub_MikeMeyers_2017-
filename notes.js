@@ -5358,7 +5358,60 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "Introduction to IPv6 addressing",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "128 bits",
+                        "drop leading 0's",
+                        "8 groups divided by colons",
+                        "hexadecimal"
+                    ],
+                    example: "00c9:04d7:0000:f8ff:0000:0000:fe21:67cf",
+                    aspects: [
+                        {
+                            name: "abbreviating the address",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "drop leading zero's",
+                                    desc: "any leading zero's in a section can be removed visually",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "collapse consecutive sections with all 0's",
+                                    desc: "can collapse consecutive sections that have 0, only 1 time per address",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            name: "IPv6 Loopback",
+                            desc: "0000:0000:0000:0000:0000:0000:0000:0001",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Introduction to IPv6 addressing
+                {
+                    name: "Advanced IPv6 Addressing",
                     desc: "",
                     sectionTips: [
                         "",
@@ -5374,8 +5427,55 @@ const book = {
                                 "",
                             ]
                         },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
                     ]
-                },
+                },//end Advanced IPv6 Addressing
+                {
+                    name: "IPv6 tunnels",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end IPv6 tunnels
             ]
         },//end 'IPv6' (13)
         {
