@@ -5418,17 +5418,24 @@ const book = {
                     name: "Advanced IPv6 Addressing",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "IPv6 is not yet fully implemented on the internet",
+                        "IPv6 addresses can be assigned automatically or manually",
+                        "Internet-capable systems will have both link-local and IPv6 addresses."
                     ],
                     notes: [
                         "never type in a subnet mask",
                         "they're ALL /64",
                         "front half from somewhere",
-                        "other half from MAC",
-                        "often: 2001:, or 2002: ; not a set rule"
-
+                        "other half from MAC or auto selected",
+                        "IPv6's often: 2001:, or 2002: ; not a set rule",
+                        "IPv6 is being laid out slowly with each ISP"
                     ],
                     aspects: [
+                        {
+                            name: "aggregation",
+                            desc: "sequential routers in the line of devices coming together to create/assemble the IPv6 address",
+                            time: "5:15mins"
+                        },
                         {
                             name: "Parts of the IPv6 Address",
                             desc: "",
@@ -5452,9 +5459,10 @@ const book = {
                         },
                         {
                             name: "Link Local Address",
-                            desc: "starts with fe80; ",
+                            desc: "starts with fe80; used to talk on our own network",
                             notes: [
                                 "fe80: {the rest}",
+                                "the rest: MAC or Random"
                             ]
                         },
                         {
@@ -5466,17 +5474,59 @@ const book = {
                             ]
                         },
                         {
-                            name: "registration",
-                            desc: "",
+                            name: "IPv6 Stateless Autoconfiguration for IPv6",
+                            desc: "like a mini-dhcp server for IPv6; routers running IPv6 can give: the 'prefix' of the network, and a gateway address to clients looking ofr an IPv6.",
                             notes: [
                                 "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Neighbor Discovery Protocol",
+                                    abbreviation: "NDP",
+                                    desc: "",
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "Route Solicitation",
+                                            abbreviation: "",
+                                            desc: "",
+                                        },
+                                        {
+                                            name: "Router Advertisement",
+                                            abbreviation: "",
+                                            desc: "",
+                                        },
+                                    ]
+                                }
                             ]
                         },
                         {
-                            name: "",
-                            desc: "",
+                            name: "IPv6 inside a router",
+                            desc: "relatively trivial",
                             notes: [
                                 "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "default gateway",
+                                    desc: "a link-local (fe80:...)"
+                                },
+                                {
+                                    name: "DHCP Unique Id",
+                                    abbreviation: "DUID",
+                                    desc: "used by the router to get DHCP information",
+                                    notes: [
+                                        "",
+                                    ],
+                                    process: [
+                                        "router plugged in- requests an IP from isp",
+                                        "isp sends a 'delegated prefix' - the first 64-bits, among other things like DNS",
+                                        "WAN side of the router is also handed out, which does not match the first 64 of the private 'delegated prefix",
+                                        ""
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -5490,26 +5540,45 @@ const book = {
                 },//end Advanced IPv6 Addressing
                 {
                     name: "IPv6 tunnels",
-                    desc: "",
+                    desc: "encapsulate IPv6 inside of an IPv4 packet to be received & strip down to the IPv6",
                     sectionTips: [
-                        "",
+                        "today, a tunneling protocol is necessary to get to the IPv6 internet",
+                        "Microsoft provides some tunnels like Toredo & 6to4",
+                        "GoGo client from www.gogo6.com",
                     ],
                     notes: [
                         "",
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "Native IPv6",
                             desc: "",
                             notes: [
                                 "",
                             ]
                         },
                         {
-                            name: "",
+                            name: "windows Tunnel Adapters",
                             desc: "",
                             notes: [
                                 "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Teredo",
+                                    desc: "slow but free",
+                                },
+                                {
+                                    name: "6to4",
+                                    desc: "",
+                                    notes: [
+                                        "big daddy"
+                                    ]
+                                },
+                                {
+                                    name: "gogo6 client",
+                                    desc: "publicly offered IPv6 tunneler"
+                                }
                             ]
                         },
                         {
@@ -5529,7 +5598,2104 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "Telephony Technologies",
+                    desc: "",
+                    sectionTips: [
+                        "Original Phone systems used Frequency division multiplexing; today 'time division multiplexing' is used",
+                        "T1 = 24 DS0's = 1.5mbps",
+                        "T3 = 28 DS1's = 43.2 mbps",
+                        "E1 & E3 are european carrier types"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Central Office",
+                            desc: "Where the phone lines lead back to the provider's infrastructure",
+                            notes: [
+                                "usually no more than 3miles (in the past)",
+                            ]
+                        },
+                        {
+                            name: "Frequency Division Multiplexing",
+                            desc: "more than one person on a physical line, splitting the calls into different frequencies",
+                            notes: [
+                                "analog has a problem with long distance",
+                                ""
+                            ]
+                        },
+                        {
+                            name: "digital system",
+                            desc: "",
+                            notes: [
+                                "starting in the 50's and essentially finished by the 70's",
+                                "64k is the 'sampling rate' that gives us good phone conversations",
+
+                            ],
+                            aspects: [
+                                {
+                                    name: "DS0 Signal",
+                                    desc: "chunks of a phone conversation",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "DS1 Frames",
+                                    desc: "24 combined DS0 signals",
+                                    notes: [
+                                        "runs on T1 cabling",
+                                    ]
+                                },
+                                {
+                                    name: "time Frequency division",
+                                    desc: "splitting up which 'packets' get sent at which time- like current ethernet",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "T1 System",
+                                    channels: 24,
+                                    desc: "cabling system that DS1 runs on",
+                                    notes: [
+                                        "1.5mbps",
+                                        "copper carrier"
+                                    ]
+                                },
+                                {
+                                    name: "T3 System",
+                                    channels: 672,
+                                    desc: "cabling system that DS1 runs on",
+                                    notes: [
+                                        "44.736 mbps",
+                                        "copper carrier"
+                                    ]
+                                },
+                                {
+                                    name: "DS3",
+                                    desc: "28 DS1's at the same time",
+                                    notes: [
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "Channel Service Unit/Data Service Unit",
+                                    abbreviation: "CSU/DSU",
+                                    desc: "looks like STP (ethernet), acts as the endpoint",
+                                    notes: [
+                                        "can plug CSU/DSU into a router",
+                                        "",
+                                    ]
+                                },
+                                {
+                                    name: "BERT Test",
+                                    desc: "Bit Error Rate Test",
+                                    notes: [
+                                        "often looks like a button on the CSU/DSU",
+                                    ]
+                                },
+                                {
+                                    name: "T1 Crossover",
+                                    time: "7:50mins",
+                                    desc: "two routers connected by a T1 crossover cable, emulates a full T1 service line",
+                                    notes: [
+                                        "",
+                                    ]
+                                }
+                            ]
+                        },
+                    ]
+                },//end Telephony Technologies
+                {
+                    name: "Optical Carriers",
+                    desc: "",
+                    sectionTips: [
+                        "Sonet: OC1= STS1 = 51.85 mbps",
+                        "OC3 = STS3 = 155.52 mbps",
+                        "OC12 = STS12 = 622.08 mbps"
+                    ],
+                    notes: [
+                        "the top reaches of the internet use 'optical' cabling",
+                        "51.85mbps * OC-## = bandwidth"
+                    ],
+                    aspects: [
+                        {
+                            name: "SONET",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            types: [
+                                {
+                                    name: "OC1",
+                                    signalMethod: "STS-1",
+                                    speed: 51.85,
+                                    speedDefinition: "mbps",
+                                },
+                                {
+                                    name: "OC3",
+                                    signalMethod: "STS-3",
+                                    speed: 155.52,
+                                    speedDefinition: "mbps",
+                                },
+                                {
+                                    name: "OC-12",
+                                    signalMethod: "STS-12",
+                                    speed: 622.08,
+                                    speedDefinition: "mbps",
+                                },
+                                {
+                                    name: "OC-24",
+                                    signalMethod: "STS-24",
+                                    speed: 1.244,
+                                    speedDefinition: "gbps",
+                                },
+                                {
+                                    name: "OC-48",
+                                    signalMethod: "STS-48",
+                                    speed: 2.488,
+                                    speedDefinition: "gbps",
+                                },
+                                {
+                                    name: "OC-192",
+                                    signalMethod: "STS-192",
+                                    speed: 9.955,
+                                    speedDefinition: "gbps",
+                                },
+                                {
+                                    name: "OC-256",
+                                    signalMethod: "STS-256",
+                                    speed: 13.22,
+                                    speedDefinition: "gbps",
+                                },
+                                {
+                                    name: "OC-768",
+                                    signalMethod: "STS-768",
+                                    speed: 39.82,
+                                    speedDefinition: "gbps",
+                                },
+                            ]
+                        },
+                        {
+                            name: "Dense Wave Division Multiplexing",
+                            abbreviation: "DWDM",
+                            time: "2:00mins",
+                            desc: "multiple light colors to multiply bandwidth",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Optical Carriers
+                {
+                    name: "Packet Switching",
+                    desc: "",
+                    sectionTips: [
+                        "Know your types of telephony packet switching",
+                        "frame relay, ATM",
+                        "MPLS; Multi-Protocol Label Switching- and IP based technique for switching"
+                    ],
+                    notes: [
+                        "a step forward from 'circuit switching'",
+                    ],
+                    aspects: [
+                        {
+                            name: "Frame Relay",
+                            desc: "doesn't care about Errors, but is fast",
+                            notes: [
+                                "cir. 1980's",
+                            ]
+                        },
+                        {
+                            name: "Asynchronous Transer Mode",
+                            abbreviation: "ATM",
+                            desc: "complete networking solution, used with SONET",
+                            notes: [
+                                "cir 1990's, meant to be a 'do it all' solution",
+                                "everything is now data, so the complexity isn't necessary",
+                                "detriment: each frame is only 55bytes long"
+                            ]
+                        },
+                        {
+                            name: "Multi-Protocol Label Switching",
+                            abbreviation: "MPLS",
+                            desc: "designed for IP based networks",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Forward Equivalence Class",
+                                    abbreviation: "FEC",
+                                    desc: "a flag assigned to packets once they've enters the MPLS network- to replace the need to perform 'header analysis'", 
+                                    notes: [
+                                        "subsequent routers use this label as an index into a table that provides them with a new FEC for that packet",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "ALL IP",
+                            desc: "ethernet based technology can essentially take care of all medium types",
+                            notes: [
+                                "",
+                            ]
+                        },
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ]
+                        },
+
+                    ]
+                },//end Packet Switching
+                {
+                    name: "Connecting with Dial-Up",
+                    desc: "",
+                    sectionTips: [
+                        "dial-up is slow (56kbps) and not a good backup anymore",
+                        "Modem is needed for a dial-up connection",
+                        "ISP will give a username & password, Dial-Up uses the PPP protocol"
+                    ],
+                    notes: [
+                        "POTS or Plain Old Telephone System",
+                        "Publicly Switched Telephone Network or PSTN",
+                        "56kbps",
+                        "modems connect to phone lines",
+                        "last resort service (not really anymore)"
+                    ],
+                    aspects: [
+                        {
+                            name: "Modem",
+                            desc: "Mechanism to deliver internet connectivity through an analog service line",
+                            notes: [
+                                "ISP phone number provision necessary",
+                            ],
+                            aspects: [
+                                {
+                                    name: "connectors",
+                                    desc: "", 
+                                    notes: [
+                                        "some are external & some are in the form of 'cards' that would be internal",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "Telephone outlet",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Internal Telephone line",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Serial Connector",
+                                            desc: "", 
+                                            notes: [
+                                                "connects to the back of the computer",
+                                            ],
+                                        },
+
+                                    ],
+                                },//end connectors
+                            ],
+                        },
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Connecting with Dial-Up
+                {
+                    name: "Digital Subscriber Line",
+                    desc: "",
+                    sectionTips: [
+                        "DSL was the first common broadband connection",
+                        "Synchronous DSL: Upload = Download",
+                        "AsynchronousDSL: Upload < Download",
+                        "DSL Requires filters to use regular telephones"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "DSL Modem",
+                            desc: "",
+                            notes: [
+                                "can come with a 4 port switch",
+                            ],
+                            aspects: [
+                                {
+                                    name: "connectors",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "RJ11",
+                                            desc: "for the subscriber telephone line", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "RJ45",
+                                            desc: "4 port switch", 
+                                            notes: [
+                                                "use one of the other connections as experimental or anytime to expose something to the internet",
+                                            ],
+                                        },
+                                    ],
+                                },//end Connectors
+                            ],
+                        },
+                        {
+                            name: "Synchronous DSL",
+                            desc: "Upload == Download", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Asynchronous DSL",
+                            desc: "upload is lower than download", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Fiber to the Premise",
+                            aliases: ["vdsl (video dsl)"],
+                            desc: "", 
+                            notes: [
+                                "some earlier implementations were 'fiber to a nearby node'",
+                            ],
+                        },
+                        {
+                            name: "Point-to-Point Protocol, Over Ethernet",
+                            abbreviation: "PPPoE",
+                            desc: "", 
+                            notes: [
+                                "Home Routers disrupted the DSL market by allowing IP sharing of the internet resource to multiple computers",
+                                "PPPoE was a counter, forcing login- much more like dialup- where the password & user was necessary and thus limited"
+                            ],
+                            aspects: [
+                                {
+                                    name: "router counter to PPPoE",
+                                    desc: "feature that forwards the username & password to each communication interaction from local machines that will be going out & needing authentication", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end Digital Subscriber Line
+                {
+                    name: "Connecting with Cable Modems",
+                    desc: "",
+                    sectionTips: [
+                        "Cable Modems come from the cable company",
+                        "Cable rarely requires PPPoE",
+                        "Cable Modems use Coaxial cable & F-Type connectors"
+                    ],
+                    notes: [
+                        "Faster than DSL",
+                        "almost never uses PPPoE"
+                    ],
+                    aspects: [
+                        {
+                            name: "connections",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            connections: [
+                                {
+                                    name: "RJ45",
+                                    desc: "", 
+                                    notes: [
+                                        "just a single connection",
+                                    ],
+                                },
+                                {
+                                    name: "Coaxial Cable",
+                                    desc: "brings in the service", 
+                                    notes: [
+                                        "f-type connector",
+                                    ],
+                                },
+                                {
+                                    name: "USB-B",
+                                    desc: "configuration port", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ]
+                        },//end connections
+                        {
+                            name: "MAC address clone",
+                            desc: "designed to communicate to the Cable Modem that everything is the same", 
+                            notes: [
+                                "",
+                            ],
+                        },
+
+                    ]
+                },//end Connecting with Cable Modems
+                {
+                    name: "Connecting With Satellites",
+                    desc: "",
+                    sectionTips: [
+                        "Satellite Modems enable connecting to the internet",
+                        "Satellite connections have terrible latency",
+                        "RG-6 cable from the dish to the modem",
+                    ],
+                    notes: [
+                        "upload: 3mbps",
+                        "12mbps down",
+                    ],
+                    aspects: [
+                        {
+                            name: "Satellite Dish",
+                            desc: "receiver & transmitter",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "cabling",
+                                    desc: "RG-6 Cable, 1 for sending & 1 for receiving, coming off the receiver are cables to send/receive the signal to the user devices", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "satellite modem",
+                            desc: "",
+                            notes: [
+                                "RG-6 has f-type connectors",
+                                "RJ45 - output to the LAN"
+                            ],
+
+                        },
+                    ]
+                },//end Connecting With Satellites
+                {
+                    name: "Cellular WAN",
+                    desc: "",
+                    sectionTips: [
+                        "WiMax is on the 802.16 standard",
+                        "Cell phones are on many standards known as 'G' terms",
+                        "HSPA/HSPA+ & LTE"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Cellular Wan",
+                            desc: "",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "data carrying standards",
+                                    desc: "cell company iterations", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "HSPA",
+                                            desc: "considered", 
+                                            notes: [
+                                                "single mbps range",
+                                            ],
+                                        },
+                                        {
+                                            name: "HSPA+",
+                                            desc: "considered", 
+                                            notes: [
+                                                "multiple mbps range",
+                                            ],
+                                        },
+                                        {
+                                            name: "LTE",
+                                            desc: "", 
+                                            notes: [
+                                                "newly predominant",
+                                                "10's of mbps",
+                                                "'4g' technology for the most part",
+                                                "cir 2009"
+                                            ],
+                                            aspects: [
+                                                {
+                                                    name: "Tethering",
+                                                    desc: "", 
+                                                    notes: [
+                                                        "",
+                                                    ],
+                                                    methods: [
+                                                        {
+                                                            name: "connect the device with a cable",
+                                                            desc: "", 
+                                                            notes: [
+                                                                "",
+                                                            ],
+                                                        },
+                                                        {
+                                                            name: "cellular WAN, and a Local Connection together",
+                                                            desc: "Hotspot; facilitating connection for local devices without a hard connection", 
+                                                            notes: [
+                                                                "",
+                                                            ],
+                                                        },
+                                                    ]
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "WiMAX",
+                            desc: "Defined by 802.16, Extention of the Wifi (802.11) standard, to extend Wifi great distances", 
+                            notes: [
+                                "17miles apart",
+                                "multiple megabits per second"
+                            ],
+                        },
+                    ]
+                },//end Cellular WAN
+                {
+                    name: "ISDN and BPL",
+                    desc: "",
+                    sectionTips: [
+                        "ISDN ran at two speeds: [64kbps, 128kbps]",
+                        "ISDN has a telephone number",
+                        "BPL uses power lines to move internet data"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Integrated Services Digital Network",
+                            abbreviation: "ISDN",
+                            desc: "for last mile connections, digital with a telephone number",
+                            notes: [
+                                "pre-dates dial-up connections to the internet & runs 2x as fast",
+                                "fully digital",
+                                "older technology"
+                            ],
+                            speeds: [
+                                "64kbps",
+                                "128kbps"
+                            ],
+                            aspects: [
+                                {
+                                    name: "(ISDN) Terminal Adapter",
+                                    desc: "", 
+                                    notes: [
+                                        "sits on site of where the services being consumed",
+                                        "ISDN phones were necessary to connect to this technology",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Broadband Over Powerlines",
+                            abbreviation: "BPL",
+                            desc: "using powerlines to run electricity as well as internet", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end ISDN and BPL
+                {
+                    name: "Remote Connectivity",
+                    desc: "",
+                    sectionTips: [
+                        "Tight VNC runs on 5900",
+                        "Microsoft RDP runs on port 3389",
+                        "remote help: control the desktop of the user that is being assisted",
+                    ],
+                    notes: [
+                        "generally can't transfer files, just for using another desktop like its in front of me",
+                    ],
+                    aspects: [
+                        {
+                            name: "ICA",
+                            desc: "Citrix's method of doing remote connectivity", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Remote Desktop Protocol",
+                            abbreviation: "RDP",
+                            port: 3389,
+                            desc: "Windows solution",
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "remote desktop server",
+                                    desc: "usually on Windows Server, using 'Remote Desktop Connection' Windows program", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Tight VNC",
+                            port: 5900,
+                            portType: "",
+                            desc: "universal protocol",
+                            notes: [
+                                "Free",
+                                "runs on all Operating Systems",
+                                "uses ICA standard"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Viewer",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Service",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Remote Help",
+                            desc: "Invitation based remote access with a link",
+                            notes: [
+                                "",
+                            ]
+                        },
+                    ]
+                },//end Remote Connectivity
+            ]
+        },//end 'Remote Connectivity' (14)
+        {
+            number: 15,
+            name: "Wireless Networking",
+            desc: "",
+            sections: [
+                {
+                    name: "Introduction to Wifi and Wireless Access Points",
+                    desc: "",
+                    sectionTips: [
+                        "Primary Wireless standard is 802.11",
+                        "Infrastructure mode uses a WAP, but all Wireless nets needs an SSID",
+                        "14 Channels used in 802.11",
+                    ],
+                    notes: [
+                        "short range radio waves in place of physical cabling",
+                    ],
+                    aspects: [
+                        {
+                            name: "802.11",
+                            desc: "defines the parts of a wireless network", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "bands",
+                                    desc: "frequency bands, 2.4 & 5ghz", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "2.4ghz",
+                                            desc: "longer distance, 1-6-11 are acceptable", 
+                                            notes: [
+                                                "channels 1-11 in North america",
+                                                "1-13, the rest of the world",
+                                                "1-14, japan"
+                                            ],
+                                        },
+                                        {
+                                            name: "5ghz",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                    ],
+                                },
+
+                            ],
+                        },
+                        {
+                            name: "Wireless Antenna and NIC",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Wireless Access Point",
+                            abbreviation: "WAP",
+                            desc: "bridging device between a wired & wireless network", 
+                            notes: [
+                                "many times Ethernet & 802.11",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Ethernet Connection",
+                                    desc: "there is usually just one(1) connection on a WAP bc its meant to connect into the network", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Wifi Connection Modes",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Infrastructure Mode",
+                                    desc: "must be a WAP", 
+                                    notes: [
+                                        "multiple clients connecting to a WAP",
+                                    ],
+                                },
+                                {
+                                    name: "Ad-HOC mode",
+                                    desc: "No WAP, only", 
+                                    notes: [
+                                        "bridge internet connection sharing to an individual computer",
+                                    ],
+                                },
+                            ],
+
+                        },
+                        {
+                            name: "Service Set Identifier",
+                            abbreviation: "SSID",
+                            desc: "Network Name", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Basic Service Set Identifier",
+                                    desc: "Basic network with a wap", 
+                                    notes: [
+                                        "multiple APs with the same SSID, plug into the same switch",
+                                    ],
+                                },
+                                {
+                                    name: "Extended Service Set Identifier",
+                                    abbreviation: "ESSID",
+                                    desc: "When multiple WAPs are connected to the same switch, they can communicate as long as they have the same SSID", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end Introduction to Wifi and Wireless Access Points
+                {
+                    name: "802.11 Standards",
+                    desc: "",
+                    sectionTips: [
+                        "Early wireless standards: 802.11b (2.4), 802.11a (5.0)",
+                        "first widely used standard: 802.11g (2.4)",
+                        "current fastest: 802.11n, 802.11ac"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    standardExtentions: [
+                        {
+                            name: "802.11/b",
+                            desc: "", 
+                            notes: [
+                                "first standard",
+                            ],
+                            band: "2.4ghz",
+                            channels: "14",
+                            speed: "11mbps",
+                            distance: "",
+                        },
+                        {
+                            name: "802.11/a",
+                            desc: "", 
+                            notes: [
+                                "cisco aeronet 1200",
+                                "shorter range"
+                            ],
+                            band: "5ghz",
+                            channels: "?",
+                            speed: "54mbps",
+                            distance: "",
+                        },
+                        {
+                            name: "802.11/g",
+                            desc: "", 
+                            notes: [
+                                "linksys wrt-54g",
+                                "changed the game",
+                                "generally compatible with previous 802.11 standards"
+                            ],
+                            band: "2.4ghz",
+                            channels: "14",
+                            speed: "54mbps",
+                            distance: "",
+                        },
+                        {
+                            name: "802.11/n",
+                            desc: "", 
+                            notes: [
+                                "start moving into 5ghz, and raising speed",
+                            ],
+                            band: "2.4 & 5ghz",
+                            channels: "14",
+                            speed: "108mbps - 300mbps, or 74 - 600 mbps",
+                            distance: "",
+                            aspects: [
+                                {
+                                    name: "Multiple Input/ Multiple Output",
+                                    desc: "conversing on multiple channels to talk to multiple devices", 
+                                    notes: [
+                                        "",
+                                    ],
+
+                                },
+                                {
+                                    name: "greenfield mode",
+                                    desc: "an overly laborious way to be backward compatible", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "802.11/ac",
+                            desc: "", 
+                            notes: [
+                                "improvement on ",
+                            ],
+                            band: "5ghz primarily,",
+                            channels: "14",
+                            speed: "1gbps",
+                            distance: "",
+                            aspects: [
+                                {
+                                    name: "Multi-User MIMO",
+                                    abbreviation: "MU-MIMO",
+                                    desc: "Multi-user comms with however many channels are available", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end 802.11 Standards
+                {
+                    name: "Power Over Ethernet",
+                    abbreviation: "PoE",
+                    desc: "",
+                    sectionTips: [
+                        "PoE Provides power to networking devices without dedicated power lines",
+                        "PoE is common for WAPs",
+                        "PoE injectors provide additional power to devices that need it",
+                    ],
+                    notes: [
+                        "power over ethernet often replaces the necessity of dedicated power",
+                        ""
+                    ],
+                    aspects: [
+                        {
+                            name: "PoE Switch",
+                            desc: "switches that are PoE capable", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "PoE Injector",
+                            desc: "anywhere there might be a run of cable that doesn't have enough power", 
+                            notes: [
+                                "",
+                            ],
+                            connections: [
+                                {
+                                    name: "RJ45-data-in",
+                                    desc: "connects to the switch", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "RJ45-power & data-out",
+                                    desc: "connects to the end-device", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "A/C connection",
+                                    desc: "to plug into the wall to suppliment/provide the power needed for the PoE application", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ]
+                        },
+                    ]
+                },//end Power Over Ethernet
+                {
+                    name: "Wireless Security Standards",
+                    desc: "",
+                    sectionTips: [
+                        "WEP is the oldest, and uses 40/64 or 104/128-bit encryption",
+                        "WPA(tkip) and WEP can be cracked",
+                        "WPA2 is the strongest wireless encryption standard"
+                    ],
+                    notes: [
+                        "default: anyone can connect to the WAP",
+                        "power comes with the encryption",
+                    ],
+                    securityStandards: [
+                        {
+                            name: "Wired Equivalent Privacy",
+                            abbreviation: "WEP",
+                            desc: "", 
+                            notes: [
+                                "original form of encryption",
+                                "128 vs 64 bit wep",
+                                "streaming protocol to encrypt",
+                                "trivially crackable"
+                            ],
+
+                            aspects: [
+                                {
+                                    name: "128-bit WEP",
+                                    desc: "", 
+                                    notes: [
+                                        "104-bit key",
+                                    ],
+                                },
+                                {
+                                    name: "64-bit WEP",
+                                    desc: "", 
+                                    notes: [
+                                        "40-bit key",
+                                    ],
+                                },
+                                {
+                                    name: "Initialization Vector",
+                                    desc: "24 bits of the key to initialize the Encryption", 
+                                    notes: [
+                                        "used in both forms/sized of WEP",
+                                    ],
+                                },
+                                {
+                                    name: "Encryption Key",
+                                    desc: "key to help engineer the Encryption", 
+                                    notes: [
+                                        "multiple keys would be used/configured to 'loan' out, or to generally be able to mix-up which key is in use.",
+                                    ],
+                                },
+                            ],
+                        },//end Wired Equivalent Privacy
+                        {
+                            name: "Wi-Fi Protected Access",
+                            abbreviation: "WPA",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                            versions: [
+                                {
+                                    name: "WPA-Personal (shared key)",
+                                    desc: "", 
+                                    notes: [
+                                        "WEP with TKIP",
+                                    ],
+                                },
+                                {
+                                    name: "WPA-Enterprise",
+                                    desc: "", 
+                                    notes: [
+                                        "revolves around Authentication; RADIUS",
+                                        "RADIUS server info is needed for WPA Enterprise"
+                                    ],
+                                },
+                                {
+                                    name: "WPA2-Personal",
+                                    desc: "", 
+                                    notes: [
+                                        "Powerful enough for AES Encryption",
+                                    ],
+                                    encryption: "AES (only)"
+                                },
+                                {
+                                    name: "WPA2-Enterprise",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    encryption: ""
+                                },
+                                {
+                                    name: "WPA2-Mixed",
+                                    desc: "WPA + WPA2, or TKIP + AES", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    encryption: ""
+                                },
+                            ],
+                            aspects: [
+                                {
+                                    name: "Temporal Key Integrity Protocol",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "AES Encryption",
+                                    desc: "More Aggresive than RC-4, requires more hardware", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                },//end Wireless Security Standards
+                {
+                    name: "Implementing Wireless Security",
+                    desc: "",
+                    sectionTips: [
+                        "Disable SSID Broadcasts",
+                        "Use MAC Filtering",
+                        "Limit the number of DHCP-issued addresses"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "ssid visibility",
+                            desc: "do not broadcast the network name openly, prevent attacks of convenience", 
+                            notes: [
+                                "turns off the broadcast",
+                                "requires manual setup",
+                                "real world is putting a screen door on a submarine"
+                            ],
+                        },
+                        {
+                            name: "MAC ACL",
+                            desc: "Access Control List based on MAC addresses", 
+                            notes: [
+                                "mac filtering, limited flexibility",
+                            ],
+                        },
+                        {
+                            name: "Multiple SSID",
+                            desc: "distribute access with SSID's", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "DHCP Issue Limiting",
+                            desc: "limit the number of IPs to be handed out", 
+                            notes: [
+                                "rigid, but not terribly difficult to change",
+                            ],
+                        },
+                        {
+                            name: "remote management",
+                            desc: "determines whether someone can reach the router wirelessly", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "client Isolation",
+                            desc: "putting each client in their own broadcast domain", 
+                            notes: [
+                                "everyone can connect to the SSID but can't see the other users",
+                            ],
+                        },
+                    ]
+                },//end Implementing Wireless Security
+                {
+                    name: "Threats to the Wireless Network",
+                    desc: "",
+                    sectionTips: [
+                        "War Driving is seeking unsecured wireless networks; War Chalking is marking the location",
+                        "WIDS can help identify valid & invalid SSIDs and WAPs",
+                        "Rogue WAPs can be setup as an Evil Twin to capture login credentials"
+                    ],
+                    notes: [
+                        "motive & opportunity",
+                        ""
+                    ],
+                    threats: [
+                        {
+                            name: "War Driving",
+                            desc: "Traveling to where wireless networks are and trying to hack into the network; driving around looking for vulnerabilities", 
+                            notes: [
+                                "legal gray area",
+                                "don't use any wireless network unless authorized"
+                            ],
+                            aspects: [
+                                {
+                                    name: "War Chalking",
+                                    desc: "using nomenclature to  identify networks", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "piggyback networks",
+                            desc: "using someone else's network to traffic illegal data", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Rogue WAP",
+                            desc: "Trying to create Wifi from an ethernet port, can create interference", 
+                            notes: [
+                                "unplug & inform if this happens",
+                            ],
+                        },
+                        {
+                            name: "Evil Twin",
+                            desc: "using a Default Home Page of a WAP, Wi-Fi jammer in place- rendering the channel unusable- and forcing the user machine to jump onto the Evil Twin", 
+                            notes: [
+                                "some machines can shut down evil Twins",
+                            ],
+                        },              
+                    ],
+                    aspects: [
+                        {
+                            name: "Wireless Intrusion Detection System",
+                            abbreviation: "WIDS",
+                            desc: "", 
+                            notes: [
+                                "can hold a list of valid WAPs",
+                            ],
+                        },
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Threats to the Wireless Network
+                {
+                    name: "Retro Threats",
+                    desc: "",
+                    sectionTips: [
+                        "War Driving; Looking around for networks that can be discovered & possibly leveraged",
+                        "War Chalking; Symbolizing the network properties in a geographically close place to where the network was found",
+                        "Thanks Logan Murphy for flying all the way to Houston for this episode"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    threats: [
+                        {
+                            name: "War Driving",
+                            desc: "Looking for Wireless nets, traveling around", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        
+                    ]
+                },//end Retro Threats
+                {
+                    name: "Wi-Fi Protected Setup",
+                    abbreviation: "WPS",
+                    desc: "press the WPS button, and within the 60sec standard, to walk over to the other device to be used, and the two devices will establish connection",
+                    sectionTips: [
+                        "WPS enables 'one button' setup of Wireless devices",
+                        "All modern wireless devices are WPS-Enabled",
+                        "WPS is a security concern"
+                    ],
+                    notes: [
+                        "turn off WPS",
+                    ],
+                    concerns: [
+                        {
+                            name: "4 digit code used in the exchange",
+                            desc: "with the 8-digit key, there is an exchange first of 4-digits which is easy to crack", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "8-digit code on the back",
+                            desc: "code that is passed between devices for verification", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Wi-Fi Protected Setup
+                {
+                    name: "Wireless Problem Scenarios",
+                    desc: "",
+                    sectionTips: [
+                        "Interference can disrupt or slow wireless connections",
+                        "interference sources: WAPs, Wireless Mice & KBoards, microwaves",
+                        "Remove sources of interference or change the WAPs frequency/channel",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    scenarios: [
+                        {
+                            name: "Interference",
+                            desc: "", 
+                            notes: [
+                                "speed established on the connection",
+                                "what speed is my WAP ready to run?",
+
+                            ],
+                            
+                            kill: [
+                                {
+                                    name: "Baby monitor",
+                                    desc: "2.4 but runs on different bands, a replacement may be appropriate", 
+                                },
+                                {
+                                    name: "garage door opener",
+                                    desc: "2.4 ghz, check the bands", 
+                                },
+                            ],
+                            run: [
+                                {
+                                    name: "baby monitor",
+                                    notes: [
+                                        "change channel on the WAP",
+                                    ],
+                                },
+                            ]
+                        },
+                        {
+                            name: "WAP on conflicting channels",
+                            desc: "Overlapping channels or channels that are drowning out the WLAN channels in use", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Connected, No Internet Access",
+                            desc: "don't use the wrong password", 
+                            notes: [
+                                "Check IP address for an APIPA address",
+                            ],
+                        },
+                        {
+                            name: "Client Profiles",
+                            desc: "When a connection to a network is made, a profile of that connection is made on the client's computer- if something changes within the WAP config, the Client Profile will not recognize this change, and Internet Connection will go down", 
+                            notes: [
+                                "once connection is made, make the connection when in range",
+                                "forget network, which deletes the profile"
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "Established Link Speed",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Windows Utility",
+                            desc: "Control Panel\\Network and Internet\\Network and Sharing Center", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Wireless Problem Scenarios
+                {
+                    name: "Planning and Installing a Wireless Network",
+                    desc: "",
+                    sectionTips: [
+                        "Select a central point to install WAP, then select, install, and orient Antennas",
+                        "patch & yagi antennas are directional and have the effect of improval signal strength",
+                        "use a bridge to extend the coverage of wireless networks",
+
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    considerations: [
+                        {
+                            name: "central location for WAP",
+                            desc: "spread the Wireless signal equally", 
+                        },
+                        {
+                            name: "walls",
+                            desc: "certain walls can block signal", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Proximity to the Switch/Port",
+                            desc: "WAP needs to connect to the hard cable infrastructure", 
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "Site Survey",
+                            desc: "analyze the area for existing networks and considerations", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Certify WAP Connectivity",
+                            desc: "walk around with a computer for a 'blind spot'", 
+                            notes: [
+                                "metallic walls can cause problems",
+                            ],
+                        },
+                        {
+                            name: "antennas",
+                            desc: "", 
+                            notes: [
+                                "3rd party antennas- gain is lost in long extension cables",
+                            ],
+                            aspects: [
+                                {
+                                    name: "di-pole",
+                                    desc: "flat signal in all directions", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Omni-directional",
+                                    desc: "all directions including vertically", 
+                                },
+                                {
+                                    name: "patch antenna",
+                                    desc: "signal like half circle; 180degrees", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "yagi",
+                                    desc: "shooting a long directed distance- hallways, corridors", 
+                                    notes: [
+                                        "looks like old tv antennas",
+                                    ],
+                                },
+                            ],
+                        },//end antennas: [omni, di-pole, yagi]
+                        {
+                            name: "WAP Configuration",
+                            time: "9:45mins",
+                            desc: "Graphical UI", 
+                            notes: [
+                                "",
+                            ],
+                            settings: [
+                                {
+                                    name: "Wireless Mode",
+                                    desc: "AP", 
+                                    notes: [
+                                        "Currently acting as just an AP",
+                                    ],
+                                    options: [
+                                        {
+                                            name: "Client",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "Client Bridge",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "Adhoc",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "Repeater",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "Repeater Bridge",
+                                            desc: "", 
+                                        },
+                                    ],
+                                },//end Wireless Mode
+                                {
+                                    name: "Wireless Network Mode",
+                                    desc: "802.11 sub-standards", 
+                                    notes: [
+                                        "The more compatibility modes running, the less ultimate throughput will be realized",
+                                    ],
+                                    options: [
+                                        {
+                                            name: "Mixed",
+                                            desc: "The more compatibility modes running, the less ultimate throughput will be realized", 
+                                            notes: [
+                                                "This is of variable impact"
+                                            ],
+                                        },
+                                        {
+                                            name: "BG-Mixed",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "B-Only",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "G-Only",
+                                            desc: "", 
+                                        },
+                                        {
+                                            name: "NG-Mixed",
+                                            desc: "mixed but has the most recent reasonable standards", 
+                                        },
+                                        {
+                                            name: "N-Only",
+                                            desc: "", 
+                                        },
+                                    ],
+                                },//end Wireless Network Mode
+                                {
+                                    name: "Wireless Channel",
+                                    desc: "1-6-11 on 2.4, ", 
+                                    notes: [
+                                        "'auto' usually works pretty well",
+                                    ],
+                                },
+                                {
+                                    name: "channel Width",
+                                    desc: "", 
+                                    notes: [
+                                        "auto is typically ok",
+                                    ],
+                                },
+                                {
+                                    name: "AP Isolation",
+                                    desc: "isolates all clients to their own broadcast domain", 
+                                    notes: [
+                                        "use in public places",
+                                    ],
+                                },
+                                {
+                                    name: "TX Power",
+                                    desc: "Turns up the broadcast of the Wireless signal", 
+                                    notes: [
+                                        "not necessarily considerate",
+                                    ],
+                                },
+                                {
+                                    name: "Wireless Configuration",
+                                    desc: "Allow or prevent configuration unless on the hard line network", 
+                                },
+
+                            ],
+                        },//end WAP Configuration
+                        {
+                            name: "Wireless Bridge",
+                            desc: "extends the scope of a wireless network", 
+                            notes: [
+                                "picks up existing SSID, and transfers it to the LAN, also repeats the signal",
+                            ],
+                        },
+                        
+                    ]
+                },//end Planning and Installing a Wireless Network
+            ]
+        },//end 'Wireless Networking' (15)
+        {
+            number: 16,
+            name: "Virtualization & Cloud Computing",
+            desc: "",
+            sections: [
+                {
+                    name: "Virtualization Basics",
+                    desc: "running another machine on top of another OS- into a virtual system",
+                    sectionTips: [
+                        "don't confuse virtualization & emulation",
+                        "make sure to Recognize the benefits of Virtualization",
+                        "2 types of Hypervisors: ['bare metal, type1', 'hosted, type2']"
+                    ],
+                    notes: [
+                        "host system with real hardware, virtualize the hardware so it can be shared",
+                        "virtualization uses the system's hardware"
+                    ],
+                    benefits: [
+                        {
+                            name: "Power Saving",
+                            desc: "", 
+                        },
+                        {
+                            name: "consolidates hardware",
+                            desc: "no need for so many moderately provisioned machines when a super machine can service many objectives", 
+                            notes: [
+                                "Domain Controller, Web Server, File server- can all be on one physical machine",
+                                "cuts maintenance"
+                            ],
+                        },
+                        {
+                            name: "Recovery and Duplication",
+                            desc: "Virtual machines are just files", 
+                            notes: [
+                                "Machines can just be spun up if they fail",
+                                "duplication is also very quick",
+                                "testing: running old or obscure systems to check the implication"
+                            ],
+                        },
+
+                    ],
+                    aspects: [
+                        {
+                            name: "emulation",
+                            desc: "Not Virtualization; Emulation uses software to pretend to behave like the real hardware", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "HyperVisor",
+                            desc: "Supervisor that helps run the Virtual Machine, keeping track and distributing the resources", 
+                            notes: [
+                                "",
+                            ],
+                            types: [
+                                {
+                                    name: "Bare Metal Hypervisor",
+                                    desc: "Boots from the Hypervisor; No typical OS that the Hypervisor sits on top of", 
+                                    notes: [
+                                        "Type1, also called",
+                                    ],
+                                },
+                                {
+                                    name: "Hosted Hypervisor",
+                                    desc: "runs on top of the existing OS", 
+                                    notes: [
+                                        "also called: Type2",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    examples: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                },//end     Virtualization Basics
+                {
+                    name: "your First Virtual Machine",
+                    desc: "",
+                    sectionTips: [
+                        "Virtual Machines need an operating system",
+                        "Snapshots store the current state of a virtual system",
+                        "Most Virtual Hardware can be changed after initialization"
+                    ],
+                    notes: [
+                        "newly created VM needs an OS disk (3:35mins)",
+                        "most Hypervisors enable reading an ISO image as though it were an optical disk (4:45mins)",
+                        "virtualization extends to peripheral ports, and Sound",
+                        "virtualized hardware can be updated/changed",
+                        "gain experience through doing"
+                    ],
+                    flavors: [
+                        {
+                            name: "Microsoft",
+                            desc: "", 
+                            notes: [
+                                "usually comes with windows",
+                            ],
+                        },
+                        {
+                            name: "Hyper-V",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Virtual Box",
+                            desc: "oracles VM VirtualBox Manager", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "Image Snapshot",
+                            time: "7:35mins",
+                            desc: "take a moment in time instance of the OS", 
+                            notes: [
+                                "for testing malware",
+                            ],
+                        },
+                        {
+                            name: "Downloadable Virtual Machines",
+                            desc: "Certain configurations that may be advantageous", 
+                            notes: [
+                                "downloadable premade virtual machines are common",
+                                "a firewall perhaps",
+
+                            ],
+                        },
+                    ]
+                },//end your First Virtual Machine
+                {
+                    name: "Infrastructure as a Service",
+                    desc: "virtual infrastructure that can be managed and housed remotely",
+                    sectionTips: [
+                        "IaaS enables you to quickly configure network resources hosted by someone else",
+                        "Amazon Web Services (AWS) is a great example of IaaS",
+                        "AWS, like most IaaS providers, only bills you for the time you are actually running a server"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "VM Farms",
+                            desc: "industrial dynamic hardware", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    marketPlayers: [
+                        {
+                            name: "Amazon Web Services",
+                            abbreviation: "AWS",
+                            desc: "", 
+                            notes: [
+                                "Part of what AWS does is IaaS",
+                            ],
+                        },
+                    ],
+                },//end Infrastructure as a Service
+                {
+                    name: "Platform as a Service",
+                    desc: "",
+                    sectionTips: [
+                        "PaaS enables access to software dev platform",
+                    ],
+                    notes: [
+                        "platform/screen to have software deployed from; can have infrastructure as a service involved",
+                        "more directed to pre-defined solutions where developers can have what they need to deploy the web service",
+                        "Paas promotes quick software deployment on the internet",
+                    ],
+                    marketPlayers: [
+                        {
+                            name: "heroku",
+                            desc: "", 
+                            notes: [
+                                "takes code, checks the code, starts the application, offers the URL obtain",
+                            ],
+                            features: [
+                                {
+                                    name: "command line utility",
+                                    desc: "cli made to interface with Heroku service", 
+                                    notes: [
+                                        "just a few commands can deploy a web application",
+                                    ],
+                                },
+                                {
+                                    name: "Add-ins",
+                                    desc: "SQL servers, other services", 
+                                    notes: [
+                                        "There is a long list of different SQL providers, among other services",
+                                    ],
+                                },
+                                {
+                                    name: "Dynos",
+                                    desc: "Adds hardware capabilities to the virtual hardware setup", 
+                                    notes: [
+                                        "Programmers don't generally consider whether there's enough hardware",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Platform as a Service
+                {
+                    name: "Software as a Service",
+                    desc: "buying subscribed access to an application's functionality",
+                    sectionTips: [
+                        "SaaS enables access to applications via Subscription",
+                        "Office365 (Microsoft) is a great example",
+                        "SaaS examples also include Dropbox and Google Docs"
+                    ],
+                    notes: [
+                        "removes the need for Optical Media",
+                        "office365",
+                    ],
+                    anotherWayToLook: [
+                        {
+                            name: "software that's not downloaded",
+                            desc: "service is not contingent on where the software is housed, but on what basis it is accessible", 
+                            notes: [
+                                "dropbox, ",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Software as a Service
+                {
+                    name: "Cloud Ownership",
+                    desc: "Public cloud ownership (like through AWS)",
+                    sectionTips: [
+                        "Toilet Paper Rolls make great cloud props",
+                        "'get off my cloud' is a rocking 'rolling stones' tune",
+                        "Four Clouds: 'public', 'private', 'community', and 'hybrid'"
+                    ],
+                    notes: [
+                        "storage, service of the equipment",
+                    ],
+                    types: [
+                        {
+                            name: "public cloud",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Private Cloud",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "community cloud",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "hybrid cloud",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Cloud Ownership
+            ]
+        },//end 'Virtualization & Cloud Computing' (16)
+        {
+            number: 17,
+            name: "Building a Real-World Network",
+            desc: "",
+            sections: [
+                {
+                    name: "Network Types",
+                    desc: "",
+                    sectionTips: [
+                        "Know the differences among 'area network' acronyms- CAN, LAN, MAN, PAN, WAN, WLAN.",
+                        "geographical: CAN, LAN, MAN, WAN, Internet",
+                        "wireless: WLAN, PAN",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    types: [
+                        {
+                            name: "Wide Area Network",
+                            abbreviation: "WAN",
+                            desc: "can't have a WAN without a (W)Router", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Campus Area Network",
+                            abbreviation: "CAN",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Metropolitan Area Network",
+                            abbreviation: "MAN",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Internet",
+                            desc: "Wide open, involving multiple MAN's", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Intranet",
+                            desc: "Large, but private, involving multiple MAN's", 
+                            notes: [
+                                "usually for a company or organization of some kind (2:16mins)",
+                            ],
+                        },
+                        {
+                            name: "Wireless LAN",
+                            abbreviation: "WLAN",
+                            desc: "as long as all WAPs are on the same broadcast network, its the same WLAN", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Personal Area Network",
+                            abbreviation: "PAN",
+                            desc: "short range network for one individual", 
+                            notes: [
+                                "bluetooth is an example, connecting multiple devices short range",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Network Types
+                {
+                    name: "Network Design",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    considerations: [
+                        {
+                            name: "assessing customer needs",
+                            desc: "find out what the company/individual needs, and determine the best soutions from basic system analysis.", 
+                            notes: [
+                                "most places have structured cabling",
+                            ],
+                        },
+                        {
+                            name: "Incorporate Security and Environmental Issues (3:15mins)",
+                            desc: "Humidity, Heat, Physical Security", 
+                            notes: [
+                                "analyze network documentation, if available",
+                            ],
+                        },
+                        {
+                            name: "Check compatibility",
+                            desc: "Cables, existing switches or other network equipment- verify what standards are in place to move forward with the right expectation.", 
+                            notes: [
+                                "drop cat6",
+                                "VoiP is commonly present and needs"
+                            ],
+                        },
+                        {
+                            name: "check Operating System Compatibility",
+                            desc: "There can be OS's still in use that are older, and keep the business going", 
+                            notes: [
+                                "old Windows Server",
+                                "backups? ",
+                            ],
+                        },
+                        {
+                            name: "Assess Wireless needs",
+                            desc: "", 
+                            notes: [
+                                "Typically a new wireless implementation",
+                                "where are the devices going to go",
+                                "guest?",
+                                "VLAN's"
+                            ],
+                        },
+                        {
+                            name: "Home office to branch office",
+                            desc: "", 
+                            notes: [
+                                "some T1'a and T3's",
+                                "tunnels",
+                                "direct connect, branch to office"
+                            ],
+                        },
+                        {
+                            name: "ISP Management",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Network Design
+                {
+                    name: "SCADA and ICS",
                     desc: "",
                     sectionTips: [
                         "",
@@ -5540,85 +7706,32 @@ const book = {
                     aspects: [
                         {
                             name: "",
-                            desc: "",
+                            desc: "", 
                             notes: [
                                 "",
-                            ]
+                            ],
                         },
                     ]
-                },
-            ]
-        },//end 'Remote Connectivity' (14)
-        {
-            number: 15,
-            name: "Wireless Networking",
-            desc: "",
-            sections: [
+                },//end SCADA and ICS
                 {
-                    name: "",
+                    name: "Unified Communications",
                     desc: "",
                     sectionTips: [
                         "",
                     ],
-                    notes: "",
-                    aspects: [
-                        {
-                            name: "",
-                            desc: "",
-                            notes: [
-                                "",
-                            ]
-                        },
-                    ]
-                },
-            ]
-        },//end 'Wireless Networking' (15)
-        {
-            number: 16,
-            name: "Virtualization & Cloud Computing",
-            desc: "",
-            sections: [
-                {
-                    name: "",
-                    desc: "",
-                    sectionTips: [
+                    notes: [
                         "",
                     ],
-                    notes: "",
                     aspects: [
                         {
                             name: "",
-                            desc: "",
+                            desc: "", 
                             notes: [
                                 "",
-                            ]
+                            ],
                         },
                     ]
-                },
-            ]
-        },//end 'Virtualization & Cloud Computing' (16)
-        {
-            number: 17,
-            name: "Building a Real-World Network",
-            desc: "",
-            sections: [
-                {
-                    name: "",
-                    desc: "",
-                    sectionTips: [
-                        "",
-                    ],
-                    notes: "",
-                    aspects: [
-                        {
-                            name: "",
-                            desc: "",
-                            notes: [
-                                "",
-                            ]
-                        },
-                    ]
-                },
+                },//end Unified Communications
             ]
         },//end 'Building a Real-World Network' (17)
         {
