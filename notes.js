@@ -7673,14 +7673,15 @@ const book = {
                             notes: [
                                 "some T1'a and T3's",
                                 "tunnels",
-                                "direct connect, branch to office"
+                                "direct connect, branch to office",
+                                "using VPN's, GRU Tunnels, MPLS"
                             ],
                         },
                         {
                             name: "ISP Management",
                             desc: "", 
                             notes: [
-                                "",
+                                "using VPN's, GRU Tunnels, MPLS",
                             ],
                         },
                     ],
