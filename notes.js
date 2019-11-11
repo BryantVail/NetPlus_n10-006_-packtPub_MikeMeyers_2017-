@@ -7621,7 +7621,9 @@ const book = {
                     name: "Network Design",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Network design starts with assessing customer needs",
+                        "Design Considerations include 'documentation', 'compatibility with existing hardware & software'",
+                        "talk security early and make sure to assess external connectivity"
                     ],
                     notes: [
                         "",
@@ -7681,7 +7683,8 @@ const book = {
                             name: "ISP Management",
                             desc: "", 
                             notes: [
-                                "using VPN's, GRU Tunnels, MPLS",
+                                "don't limit to 1 ISP",
+                                ""
                             ],
                         },
                     ],
@@ -7699,17 +7702,66 @@ const book = {
                     name: "SCADA and ICS",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Industrial Control Systems: control machines with sensors and actuators connected to an ICS server",
+                        "Supervisory Control and Data Aquisition (SCADA) systems handle ICS over a large area",
+                        "Key Pieces: Programmable Logic Controller (PLC), Human Machine Interface (HMI), and Remote Terminal Unit (RTU)"
                     ],
                     notes: [
                         "",
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "Supervisory Control and Data Aquisition",
+                            abbreviation: "SCADA",
                             desc: "", 
                             notes: [
                                 "",
+                            ],
+                        },
+                        {
+                            name: "Industrial Control System",
+                            abbreviation: "ICS",
+                            desc: "controlling elements of an industrial environment", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Machine",
+                                    desc: "industrial business machina", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Sensor",
+                                    desc: "takes input & sends it to the ICS Server", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Actuator",
+                                    desc: "device that is implemented in response to Sensor input", 
+                                    notes: [
+                                        " pump, A/C, etc",
+                                    ],
+                                },
+                                {
+                                    name: "Interface",
+                                    desc: "User access to make changes and config- also monitor", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },//end ICS
+                        {
+                            name: "Programmable Logic Controller",
+                            abbreviation: "PLC",
+                            desc: "acting in service as the 'Controller' for the Industrial Control System", 
+                            notes: [
+                                "embedded Windows or Linux",
                             ],
                         },
                     ]
@@ -7718,17 +7770,104 @@ const book = {
                     name: "Unified Communications",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Unified Communication combines VoIP phones, Video fax, chat, and more",
+                        "key components of UC are: the UC Device, UC Server, and UC Gateway",
+                        "ports: RTP: [5004, 5005(tcp)], SIP: [5060, 5061(tcp)], H.323: [1720(tcp], MGCP: [2427, 2727 (TCP or UDP)]"
                     ],
                     notes: [
                         "",
                     ],
                     aspects: [
                         {
-                            name: "",
+                            name: "Public Branch Exchange",
+                            abbreviation: "PBX",
+                            desc: "run by a switching device, would enable internal phone systems within a local line from the provider", 
+                            notes: [
+                                "worked well, but VoIP has taken over",
+                            ],
+                        },
+                        {
+                            name: "Voice Over IP",
                             desc: "", 
                             notes: [
                                 "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Unified Communications",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "Collaborative Tools/Workflow",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Presence Information",
+                                            desc: "determine who is there, and who isn't", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Video Conferencing/Real Time",
+                                            desc: "Everyone is a 'Peer', anyone can talk to anyone at any time", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "MediaNet",
+                                            desc: "uses the network & QoS to create a resonable connection between sites", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                    ],
+                                    Ports: [
+                                        {
+                                            name: "Real-Time Transport Protocol",
+                                            abbreviation: "RTP",
+                                            port: "5004, 5005",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Session Initiation Protocol",
+                                            abbreviation: "SIP",
+                                            port: "5060, 5061",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "H.323",
+                                            abbreviation: "H.323",
+                                            port: "1720",
+                                            desc: "ITU protocol with switching audio & video", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                        {
+                                            name: "Media Gateway Control Protocol",
+                                            abbreviation: "MGCP",
+                                            port: "2427, 2727",
+                                            desc: "used for media gateways", 
+                                            notes: [
+                                                "",
+                                            ],
+                                        },
+                                    ],
+                                },
                             ],
                         },
                     ]
@@ -7741,22 +7880,300 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "What is Risk Management",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Security Policies are documents with broad overview statements",
+                        "Security Controls provide more details",
+                        "Procedures discuss specific implementation of policies"
                     ],
                     notes: "",
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "Secure Infrastructure from threats",
+                            desc: "prevent or stop threats",
                             notes: [
-                                "",
+                                "Physical boundries",
                             ]
                         },
+                        {
+                            name: "laws and standards",
+                            desc: "Legal standards inform how IT should behave regarding access to data", 
+                            notes: [
+                                "HIPPA",
+                                "NIST, National Institute of standards",
+                                "Best practices from software vendors"
+                            ],
+                        },
+                        {
+                            name: "Security Policies",
+                            desc: "Document(s) that define security", 
+                            notes: [
+                                "password policy",
+                                ""
+                            ],
+                        },
+                        {
+                            name: "Security Control",
+                            desc: "drawn out definition for implementation of", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Procedure",
+                            desc: "Exactly how to implent the Security control", 
+                            notes: [
+                                "",
+                            ],
+                        },
                     ]
-                },
+                },//end What is Risk Management
+                {
+                    name: "Security Policies",
+                    desc: "",
+                    sectionTips: [
+                        "Security Policies Define aspects of network security",
+                        "Acceptable use policy specifies what people can do with network and equipment",
+                        "Network Access Policy specifies who gets specific access to the network"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Acceptable Use Policy",
+                            desc: "", 
+                            notes: [
+                                "Ownership; ",
+                            ],
+                        },
+                        {
+                            name: "Network Access Policy",
+                            desc: "What people can do to certain resources on the network", 
+                            notes: [
+                                "customer SSID vs Employee SSID policy",
+                            ],
+                        },
+                    ]
+                },//end Security Policies
+                {
+                    name: "Change Management",
+                    desc: "Moving through changes in a methodical way to avoid downtime or loss",
+                    sectionTips: [
+                        "change-management team handles infrastructure-level changes",
+                        "change process includes requests, types of changes, configuration procedures, rollback- and more",
+                        "end game: documentation of all changes made"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Strategic Change",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Infrastructure Change",
+                            desc: "", 
+                            notes: [
+                                "considered above the change management system",
+                            ],
+                        },
+                        {
+                            name: "Change Request",
+                            desc: "", 
+                            notes: [
+                                "downtime needs to be authorized",
+
+                            ],
+                            aspects: [
+                                {
+                                    name: "Type of Change",
+                                    desc: "general description of what the change includes", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Configuration Procedures",
+                                    desc: "What will need to be done to make the change", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Rollback Process",
+                                    desc: "what will it take to 'undo' the change", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Potential Impact",
+                                    desc: "", 
+                                    notes: [
+                                        "time, money, performance? ",
+                                    ],
+                                },
+                                {
+                                    name: "Notification",
+                                    desc: "what steps will we take to notify those impacted", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Documentation",
+                                    desc: "Ensure documentation is made or updated", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end Change Management
+                {
+                    name: "User Training",
+                    desc: "",
+                    sectionTips: [
+                        "Network Techs get called for User Training",
+                        "Train users on Acceptable use and password policies",
+                        "Users should recognize social engineering and avoid malware"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Acceptable Use Policy",
+                            desc: "onboarding presentation", 
+                            notes: [
+                                "Password Policy",
+                                ""
+                            ],
+                        },
+                        {
+                            name: "Workplace Security",
+                            desc: "", 
+                            notes: [
+                                "Passwords on sticky notes",
+                            ],
+                        },
+                        {
+                            name: "Social Engineering",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end User Training
+                {
+                    name: "Points of Failure",
+                    desc: "",
+                    sectionTips: [
+                        "",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    ports: [
+                        {
+                            name: "Hot Standby Router Protocol",
+                            abbreviation: "HSRP",
+                            port: "",
+                            desc: "Allow more than one router to work as a team/cluster, to ensure there can be failover to an operational node", 
+                            notes: [
+                                "Cisco",
+                            ],
+                        },
+                        {
+                            name: "Virtual Router Redundancy Protocol",
+                            abbreviation: "VRRP",
+                            port: "",
+                            desc: "Allow more than one router to work as a team/cluster, to ensure there can be failover to an operational node", 
+                            notes: [
+                                "Open Source",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "IT Assets",
+                            desc: "if this failes, the primary aspect of the business stops",
+                            notes: [
+                                "critical nodes, like servers",
+                                "router"
+                            ],
+                        },
+                        {
+                            name: "Failover",
+                            desc: "have something ready to go in place of the primary system", 
+                            notes: [
+                                "not the same as a backup",
+                            ],
+                        },
+                        {
+                            name: "Virtual IP Address",
+                            desc: "IP address that is not explicitly associated with a port", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Clustering",
+                            desc: "Mirrored Server, using VirtualIP", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Points of Failure
+                {
+                    name: "Standard Business Documentation",
+                    desc: "",
+                    sectionTips: [
+                        "Standard Business documentation is common in networking",
+                        "standards on the exam include SLA, MOU, MSA, and SOW",
+                        "These are real world standards"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Memorandum of Understanding",
+                            abbreviation: "MOU",
+                            desc: "defines an agreement between parties, used where a legally binding contract is not appropriate", 
+                            notes: [
+                                "Agreed Duties",
+                                "Cost",
+                                "logistics"
+                            ],
+                        },
+                        {
+                            name: "Multi-Source Agreement",
+                            abbreviation: "MSA",
+                            desc: "inter-business, and intra-industry agreement", 
+                            notes: [
+                                "GBIC, ",
+                            ],
+                        },
+                        {
+                            name: "Statement of Work",
+                            abbreviation: "SOW",
+                            desc: "Defines the service/product provided, time frame, milestones", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Standard Business Documentation
             ]
         },//end 'Managing Risk' (18)
         {
@@ -7768,19 +8185,353 @@ const book = {
                     name: "",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Malware Slows systems, Generates Popups, and causes general Havok",
+                        "Dos and DDoS attacks swamp a server so it cannot perform its primary function",
+                        "Smurf Attacks use Zombies to generate responses to a spoofed source computer"
                     ],
-                    notes: "",
+                    notes: "definition file updates",
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "Viruses",
+                            desc: "copy itself, activate and do something bad",
                             notes: [
                                 "",
                             ]
                         },
+                        {
+                            name: "Worms",
+                            desc: "Malware that uses the TCP/IP network to propogate", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Denial of Service Attack",
+                            abbreviation: "DOS",
+                            desc: "Make the target so busy, that it prevents the target from functioning", 
+                            notes: [
+                                "ICMP (ping) that the machine doesn't know how to deal with",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Distributed Denial of Service",
+                                    abbreviation: "DDoS",
+                                    desc: "Coordinated effort of DDoS with multiple malicious machines", 
+                                    notes: [
+                                        "common today",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Smurf Attack",
+                            desc: "like DDoS, but with a 'spoofed' source address", 
+                            notes: [
+                                "",
+                            ],
+                        },
                     ]
-                },
+                },//end Threats
+                {
+                    name: "Social Engineering",
+                    desc: "",
+                    sectionTips: [
+                        "social engineering comes in many forms",
+                        "shred docs to stay safe against dumpster diving",
+                        "educate users against shoulder surfing and phishing",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Dumpster Diving",
+                            desc: "", 
+                            solution: "shredder",
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "shoulder surfing",
+                            desc: "", 
+                            solutions: [
+                                "screen protectors",
+                                "screen savers",
+                            ],
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "phishing",
+                            desc: "pretending to be someone else/another resource", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "Whale Phishing",
+                                    desc: "looking for big names or personalities", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Spear Phishing",
+                                    desc: "trying to get one specific person", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end Social Engineering
+                {
+                    name: "Access Control",
+                    desc: "",
+                    sectionTips: [
+                        "Access control is important",
+                        "Stateless Firewalls use pattern analysis and heuristics to decide which packets should be blocked",
+                        "stateful firewalls examine each packet to decide which packets should be blocked",
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Stateless Firewalls",
+                            desc: "Essentially just get turned on and are ready to go; designed to look at packets, then make decisions", 
+                            notes: [
+                                "",
+                            ],
+                            settings: [
+                                {
+                                    name: "Dos Protection",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "stateful firewall",
+                            desc: "Looks at every packet looking for the state of each packet", 
+                            notes: [
+                                "control services",
+                                "filter computers",
+                                ""
+                            ],
+                            settings: [
+                                {
+                                    name: "IP Access Control List",
+                                    abbreviation: "IP ACL Rule",
+                                    desc: "", 
+                                    notes: [
+                                        "deny all services to 'any' interface",
+                                    ],
+                                },                                
+                            ],
+                        },
+                    ]
+                },//end Access Control
+                {
+                    name: "Testing Network Security",
+                    desc: "",
+                    sectionTips: [
+                        "Open Ports allow access into a computer",
+                        "nmap can scan a system and identify any open ports, services, and devices",
+                        "Honey Pots and Honey Nets are designed to bait would-be hackers"
+                    ],
+                    notes: [
+                        "sometimes we want them to try & do stuff so we can counter or understand the motive",
+
+                    ],
+                    aspects: [
+                        {
+                            name: "Open Ports",
+                            desc: "ports that are not in use can be a vulnerability", 
+                            notes: [
+                                "",
+                            ],
+                            tools: [
+                                {
+                                    name: "Nessus",
+                                    desc: "", 
+                                    notes: [
+                                        "free",
+                                    ],
+                                },
+                                {
+                                    name: "Network Map",
+                                    abbreviation: "NMap",
+                                    desc: "Scans ports and other types of vulnerabilities", 
+                                    notes: [
+                                        "scans, but doesn't do anything to stop them",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Honey Pot",
+                            desc: "a location that would be appealing & easy to gain access to, typically safe for someone to hack- but used to catch simple evildoers", 
+                            notes: [
+                                "record keystrokes",
+                            ],
+                            tools: [
+                                {
+                                    name: "HoneyBot",
+                                    desc: "creates a honeypot, a web server, to easily implement a honeypot", 
+                                    notes: [
+                                        "pretending to be a web server",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Honey Net",
+                            desc: "Multiple computers that come together for a complex honey pot", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Testing Network Security
+                {
+                    name: "Mitigating Network Threats",
+                    desc: "",
+                    sectionTips: [
+                        "Implement Proper Mitigation techniques to protect your network",
+                        "Start with training and awareness, as well as patch management",
+                        "Complete with policies, procedures, and incident response"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Mitigating Network Threats
+                {
+                    name: "Introduction to Firewalls",
+                    desc: "filters traffic based on criteria, typically placed at the edge of a network",
+                    sectionTips: [
+                        "Firewalls filter traffic based on specific criteria",
+                        "firewalls can be network based or host based",
+                        "firewall types: hardware & software varieties",
+                    ],
+                    notes: [
+                        "prevent naughties from coming into the network, and from going out",
+                    ],
+                    aspects: [
+                        {
+                            name: "",
+                            desc: "", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Network Firewall",
+                            desc: "protects the network", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Introduction to Firewalls
+                {
+                    name: "Firewalls",
+                    desc: "filter packets based on criteria",
+                    sectionTips: [
+                        "Stateless firewalls filter based on ports and IP addresses",
+                        "Stateful firewalls track the state of conversations",
+                        "Context- and application-aware firewalls filter based on the content of the packets"
+                    ],
+                    notes: [
+                        "commonly firewalls have both stateful & stateless features within the same solution(equipment + software)",
+                        ""
+                    ],
+                    types: [
+                        {
+                            name: "Stateless",
+                            desc: "generally filters traffic based on IP addresses and port numbers", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                
+                            ],
+                        },
+                        {
+                            name: "Stateful",
+                            desc: "keeps track of the 'state' of conversations on the network", 
+                            notes: [
+                                "context & application aware",
+                            ],
+                            aspects: [
+                                {
+                                    name: "State Table",
+                                    desc: "the structure used to track communication/conversation state between client & server, or peer to peer", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Deep Packet Inspection",
+                                    abbreviation: "DPI",
+                                    desc: "Looks at the packet itself to determine further context and has added ability to act based on that information", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "Access Control List",
+                            abbreviation: "ACL",
+                            desc: "restriction rule set", 
+                            notes: [
+                                "port numbers; inbound or outbound",
+                                "URL address",
+                                "keyword"
+                            ],
+                        },
+                    ]
+                },//end Firewalls
+                {
+                    name: "DMZ",
+                    desc: "A place where computers are open to the outside network",
+                    sectionTips: [
+                        "DMZ is an area of a network that hosts public-facing servers",
+                        "Servers in the DMZ are still protected by a firewall",
+                        "Bastion Host: any machine directly exposed to the public internet"
+                    ],
+                    notes: [
+                        "not WIDE open, there are some measures to prevent hacking",
+                        "Home router DMZ's are not advised; Single IP, probably on the same broadcast domain or network",
+                        "put the honeypot or HoneyNet within the DMZ"
+                    ],
+                    aspects: [
+                        {
+                            name: "Bastion Host",
+                            desc: "Router open to Internet traffic", 
+                            notes: [
+                                "Firewall/Router > DMZ > Internal Firewall",
+                            ],
+                        },
+                    ]
+                },//end DMZ
             ]
         },//end 'Protecting Your Network' (19)
         {
@@ -7789,22 +8540,262 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "SNMP",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "SNMP uses UDP port 161 or 10161 (TLS)",
+                        "SNMP Managed devices run an agent that talks with a Network Management Station (NMS)",
+                        "SNMPv1: unencrypted",
+                        "SNMPv2: basic encryption",
+                        "SNMPv3: added TLS"
                     ],
-                    notes: "",
-                    aspects: [
+                    notes: [
+                        "One Network Management System can have different versions of SNMP",
+                    ],
+                    Versions: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "SNMPv1",
+                            desc: "first version, works great- limited command set, and not encrypted", 
                             notes: [
                                 "",
-                            ]
+                            ],
+                        },
+                        {
+                            name: "SNMPv2",
+                            desc: "More commands, encryption- but weak", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "SNMPv3",
+                            desc: "Better encryption - TLS.", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ],
+                    aspects: [
+                        {
+                            name: "telnet",
+                            desc: "some commands that can be done through PuTTY or other telnet clients", 
+                            notes: [
+                                "",
+                            ],
+                            commands: [
+                                {
+                                    name: "snmp-server",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    subCommands: [
+                                        {
+                                            name: "community",
+                                            desc: "with the 'name' of the community, initiates the SNMP server", 
+                                            notes: [
+                                                "community is an organization of managed devices"
+                                            ],
+                                            subCommands: [
+                                                {
+                                                    name: "RO",
+                                                    desc: "Read Only; creates the SNMP as read only", 
+                                                },
+                                                {
+                                                    name: "RW",
+                                                    desc: "Read Write", 
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },//end telnet
+                        {
+                            name: "Network Management System",
+                            abbreviation: "NMS",
+                            desc: "used for Graphing SNMP data", 
+                            notes: [
+                                "encrypting can be SNMP can be a little more effort",
+                            ],
+                            tools: [
+                                {
+                                    name: "Cacti",
+                                    desc: "Open source NMS for graphing SNMP Data", 
+                                    notes: [
+                                        "",
+                                    ],
+                                    aspects: [
+                                        {
+                                            name: "Create the Community",
+                                            desc: "", 
+                                            notes: [
+                                                "",
+                                            ],
+                                            fields: [
+                                                "description",
+                                                "hostName (or IP)",
+                                                "host template",
+                                                "number of collection threads",
+                                                "downed device detection (type)",
+                                                "Ping timeout value (for downed device detection)",
+                                                "ping retry count (for ping timeout value)",
+                                                "snmp version",
+                                                "public/private",
+                                                "snmp port",
+                                                "snmp timeout",
+                                                "snmp timeout",
+                                            ],
+                                        },
+                                    ],
+                                },
+                                "Nagios",
+                                "Zabbix",
+                                "Spiceworks"
+                            ],
+                        },
+                        {
+                            name: "Simple Network Management Protocol",
+                            abbreviation: "SNMP",
+                            desc: "tool to admin & manage network devices remotely", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Managed Device",
+                            desc: "Device set up to be able to use SNMP- like a printer.", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Agent",
+                            abbreviation: "",
+                            desc: "software built into the printer to SNMP", 
+                            listeningPort: "161(udp), 10161(encrypted)",
+                            transmissionPort: "",
+                            notes: [
+                                "becomes a managed device",
+                            ],
+                        },
+                        {
+                            name: "SNMP Manager",
+                            desc: "running an SNMP utility, computer that is going to engage with the managed devices", 
+                            listeningPort: "udp 162, tls: 10162",
+                            notes: [
+                                "devices will need to be communicated ",
+                            ],
+                        },
+                        {
+                            name: "Management Information Base",
+                            abbreviation: "MIB",
+                            desc: "Keeps track of device information- specific to the type of device", 
+                            notes: [
+                                "Many SNMP utilities have a 'query' for gathering the information from which the SNMP Manager will inquire",
+                            ],
+                        },
+                        {
+                            name: "Commands",
+                            desc: "SNMP has commands that are used for interaction with Managed Devices", 
+                            aspects: [
+                                {
+                                    name: "Get",
+                                    desc: "command to query info", 
+                                    notes: [
+                                        "send get, then the machine will reply with a 'get repsonse'",
+                                    ],
+                                },
+                                {
+                                    name: "Walk",
+                                    desc: "batch requests for info", 
+                                    notes: [
+                                        "SNMPWalk is on Linux commands",
+                                    ],
+                                },
+                            ],
+                        },
+                        {
+                            name: "Trap",
+                            desc: "Setting up 'triggers' for certain values on certain fields so a 'get' query is not needed to be informed about a given parameter", 
+                            notes: [
+                                "",
+                            ],
                         },
                     ]
-                },
+                },//end SNMP
+                {
+                    name: "Documenting Logs",
+                    desc: "",
+                    sectionTips: [
+                        "review the different types of logs",
+                        "Event Viewer: a Windows tool that displays various types of logs",
+                        "Many UNIX Systems use sysLog, which works with SNMP"
+                    ],
+                    notes: [
+                        "System or general logs",
+                        "logs keep track of things that have happened over time",
+                        "changing Access Control Lists (ACL's)",
+                        "creating a new VLAN",
+                        "change log: when things are changed",
+                        "history log: events in general"
+                    ],
+                    aspects: [
+                        {
+                            name: "Event Viewer",
+                            desc: "", 
+                            notes: [
+                                "different in Windows XP than later/current versions",
+                                "logs can be kept for a certain length of time"
+                            ],
+                            aspects: [
+                                {
+                                    name: "Application Logs",
+                                    desc: "", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Security Logs",
+                                    desc: "individual 'security' type events", 
+                                },
+                                {
+                                    name: "setup Logs",
+                                    desc: "relatively new, installs & updates", 
+                                },
+                                {
+                                    name: "System/General Logs",
+                                    desc: "", 
+                                },
+                            ],
+                        },
+                        {
+                            name: "Linux",
+                            desc: "Less formalized initially, ", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "SNMP Logs",
+                            desc: "Set up logs on the device so information can be gathered", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Syslog",
+                            desc: "standard for loggin", 
+                            notes: [
+                                "standard format (good for SNMP)",
+                                "Hierarchy of Error Priority",
+                                "urgency rating from 0(urgent)-7(light)",
+                                ""
+                            ],
+                        },
+                    ]
+                },//end Documenting Logs
             ]
         },//end 'Network Monitoring' (20)
         {
@@ -7813,22 +8804,128 @@ const book = {
             desc: "",
             sections: [
                 {
-                    name: "",
+                    name: "MTU Problems",
                     desc: "",
                     sectionTips: [
-                        "",
+                        "Recognize MTU Errors",
+                        "MTU Size problems can cause fragmentation",
+                        "biggest MTU size problems are on routers",
                     ],
-                    notes: "",
+                    notes: [
+                        "fragmenting will slow things down",
+                        "no Fragmentation or an MTU setup not to change.",
+                        "MTU changes can be required with tunnels due to encryption overhead"
+                    ],
                     aspects: [
                         {
-                            name: "",
-                            desc: "",
+                            name: "Maximum Transmission Unit",
+                            abbreviation: "MTU",
+                            desc: "Maximum size the transmission payload will be, default 1500Bytes in Ethernet", 
+                            notes: [
+                                "Default: 1500bytes",
+                                "DSL uses ATM -> just under 100bytes each",
+                                "identified by a serious slowdown"
+                            ],
+                        },
+                        {
+                            name: "MTU Black Hole",
+                            desc: "When the MTU is set not to adjust/change, it can prevent this type of traffic from being received.", 
                             notes: [
                                 "",
-                            ]
+                            ],
                         },
                     ]
-                },
+                },//end MTU Problems
+                {
+                    name: "Bad Connection Solutions",
+                    desc: "",
+                    sectionTips: [
+                        "Isolate the problem",
+                        "Check if something has changed",
+                        "Check the obvious"
+                    ],
+                    notes: [
+                        "Internet doesn't go down",
+                        "bad cables, bad connectors, bad modules, power failures"
+                    ],
+                    aspects: [
+                        {
+                            name: "Isolate the Problem",
+                            desc: "think layer1 first, check the impact of the problem across users", 
+                            notes: [
+                                "One person, or everone",
+                                "something has changed",
+                                ""
+                            ],
+                        },
+                        {
+                            name: "Multiple Machines",
+                            desc: "network hardware: power, ", 
+                            notes: [
+                                "",
+                            ],
+                            aspects: [
+                                {
+                                    name: "UPS",
+                                    desc: "Check the power supply", 
+                                    notes: [
+                                        "Voltage Monitors to check for 'Sags' in the power",
+                                    ],
+                                },
+                                {
+                                    name: "Temperature",
+                                    desc: "Temp can cause intermittent outages, or brown outs", 
+                                    notes: [
+                                        "",
+                                    ],
+                                },
+                                {
+                                    name: "Switches",
+                                    desc: "If an Odd group of users go down, check if there are multiple switches that are feeding the network", 
+                                    notes: [
+                                        "check link lights",
+                                    ],
+                                },
+                            ],
+                        },
+                    ]
+                },//end Bad Connection Solutions
+                {
+                    name: "Titanium Tech",
+                    desc: "",
+                    sectionTips: [
+                        "Identify The problem and establish a theory of probable cause",
+                        "Test the theory to determine cause",
+                        "Establish a plan of action to resolve the problem"
+                    ],
+                    notes: [
+                        "",
+                    ],
+                    aspects: [
+                        {
+                            name: "Identify the problem",
+                            desc: "", 
+                            notes: [
+                                "ask how they know the problem",
+
+                            ],
+                        },
+                        {
+                            name: "Establish a Theory of Probable Cause",
+                            desc: "Use the Scientific Method to test and debunk theories", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                        {
+                            name: "Establish a Plan of Action",
+                            desc: "Stand in the hearts and minds of users everywhere", 
+                            notes: [
+                                "",
+                            ],
+                        },
+                    ]
+                },//end Titanium Tech
             ]
         },//end 'Network Troubleshooting' (21)
     ]
